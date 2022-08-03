@@ -1,0 +1,18 @@
+[
+    {
+        "inputs": [],
+        "name": "counter",
+        "outputs": [
+            {
+                "name": "z_len",
+                "type": "felt"
+            },
+            {
+                "name": "z",
+                "type": "felt*"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    }
+]
