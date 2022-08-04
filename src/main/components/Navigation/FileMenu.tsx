@@ -5,6 +5,7 @@ import { FC } from "react"
 import { toHex } from "starknet/dist/utils/number"
 import { localized } from "../../../common/localize/localizedString"
 import { createSong } from "../../actions"
+
 import {
   openFile,
   saveFile,
@@ -184,6 +185,14 @@ export const FileMenu: FC<{ close: () => void }> = observer(({ close }) => {
   const onClickStarknet = async () => {
     const { song } = rootStore
 
+    const fileHandle = rootStore.song.fileHandle
+    if (fileHandle === null) {
+      await saveFileAs(rootStore)
+      return
+    }
+
+    fs.writeFile("/Users/caseywescott/Desktop/some.jpeg", "data", "binary")
+
     if (counterResult) {
       let barr = ""
       let barr1 = ""
@@ -198,14 +207,27 @@ export const FileMenu: FC<{ close: () => void }> = observer(({ close }) => {
         barr1 += value4
       }
       console.log(barr)
+
       console.log(barr1)
+
+      console.log(hex2bin(barr1))
+
+      for (let i = 0; i < barr1.length - 1; i++) {
+        console.log(i)
+        console.log(barr1.charAt(i))
+      }
 
       var buffer = new ArrayBuffer(barr.length / 8)
       var view = new Uint8Array(buffer)
 
       for (let i = 0; i < barr.length / 8; i += 1) {
+        //view[i] = parseInt(barr.slice(i * 8, i * 8 + 8), 2)
         view[i] = parseInt(barr.slice(i * 8, i * 8 + 8), 2)
-        console.log(view[i])
+
+        console.log("view[i]", i)
+
+        console.log(barr.slice(i * 8, i * 8 + 8))
+        console.log(parseInt(barr.slice(i * 8, i * 8 + 8), 2))
       }
 
       console.log(view)

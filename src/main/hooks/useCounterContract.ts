@@ -8,7 +8,7 @@ export function useCounterContract() {
   return useContract({
     abi: CounterAbi as Abi,
     address:
-      "0x018a233ce1f8449944fc55ba001818ab991f4eba006f99afe0014035051ff555",
+      "0x05d8a0ddef7d81623f3adb030d2338a26f79c2eb3d4ec322b43041cd5417f58e",
   })
 }
 

@@ -1,30 +1,24 @@
-import { checkIfStateModificationsAreAllowed } from "mobx/dist/internal"
 import { songFromMidi, songToMidi } from "../../common/midi/midiConversion"
 import { writeFile } from "../services/fs-helper"
 import RootStore from "../stores/RootStore"
 import { setSong } from "./song"
 
-
-import {
-  AnyEvent,
-  MidiFile,
-  read,
-  StreamSource,
-  write as writeMidiFile,
-} from "midifile-ts"
-
-
-
 //import { useStores } from "../../hooks/useStores"
 //import { useStarknetCall } from "@starknet-react/core"
 //import { useCounterContract } from "../../hooks/useCounterContract"
 
-
-
-
-
 // URL parameter for automation purposes used in scripts/perf/index.js
 // /edit?disableFileSystem=true
+
+function str2ab(str: String) {
+  var buf = new ArrayBuffer(str.length * 2) // 2 bytes for each char
+  var bufView = new Uint16Array(buf)
+  for (var i = 0, strLen = str.length; i < strLen; i++) {
+    bufView[i] = str.charCodeAt(i)
+  }
+  return buf
+}
+
 export const disableFileSystem =
   new URL(window.location.href).searchParams.get("disableFileSystem") === "true"
 
@@ -58,19 +52,20 @@ export const openFile = async (rootStore: RootStore) => {
 
   const buf = await file.arrayBuffer()
 
-  const starknetdata = new Uint8Array(buf.slice(0,8))
+  const starknetdata = new Uint8Array(buf.slice(0, 8))
   console.log(buf)
-  console.log('buf')
-console.log(starknetdata)
+  console.log("buf")
+  console.log(starknetdata)
 
-var foobar = starknetdata.subarray(0,2)
-var arrayBuffer = foobar.buffer.slice(foobar.byteOffset, foobar.byteLength + foobar.byteOffset); 
+  var foobar = starknetdata.subarray(0, 2)
+  var arrayBuffer = foobar.buffer.slice(
+    foobar.byteOffset,
+    foobar.byteLength + foobar.byteOffset
+  )
 
-console.log('converted to Uint8Array')
+  console.log("converted to Uint8Array")
 
-console.log(new Uint8Array(arrayBuffer))
-
-
+  console.log(new Uint8Array(arrayBuffer))
 
   console.log(file)
   const song = await songFromFile(file)
@@ -78,25 +73,23 @@ console.log(new Uint8Array(arrayBuffer))
   setSong(rootStore)(song)
 }
 
-
-
-export const openStarkNetFile = async (rootStore: RootStore, data: String, data2: String, data3: Uint8Array) => {
-
+export const openStarkNetFile = async (
+  rootStore: RootStore,
+  data: String,
+  data2: String,
+  data3: Uint8Array
+) => {
   async function getFile() {
     // open file picker, destructure the one element returned array
-   // [fileHandle] = await window.showOpenFilePicker();
-  
+    // [fileHandle] = await window.showOpenFilePicker();
     // run code with our fileHandle
   }
-   
 
   console.log(data)
-  console.log('0'+data2)
-  console.log('openStarkNetFile')
-
+  console.log("0" + data2)
+  console.log("openStarkNetFile")
 
   const data9 = data3.buffer
-
 
   //const mfile = writeMidiFile([][], 480);
 
@@ -123,7 +116,6 @@ export const openStarkNetFile = async (rootStore: RootStore, data: String, data2
       return
     }
     await writeFile(fileHandle, data9)
-    
 
     const msg = "An error occured trying to open the file."
     console.error(msg, ex)
@@ -137,12 +129,11 @@ export const openStarkNetFile = async (rootStore: RootStore, data: String, data2
   setSong(rootStore)(song)
 }
 
-
 export const songFromFile = async (file: File) => {
   const buf = await file.arrayBuffer()
 
-console.log('buf')
-console.log(buf)
+  console.log("buf")
+  console.log(buf)
 
   const song = songFromMidi(new Uint8Array(buf))
   if (song.name.length === 0) {
@@ -154,18 +145,20 @@ console.log(buf)
   return song
 }
 
-export const saveStarknetFile = async (rootStore: RootStore, data3: Uint8Array) => {
+export const saveStarknetFile = async (
+  rootStore: RootStore,
+  data: Uint8Array
+) => {
   const fileHandle = rootStore.song.fileHandle
   if (fileHandle === null) {
     await saveFileAs(rootStore)
     return
   }
 
-  console.log(data3)
+  //const data4 = data3.buffer
 
-  const data4 = data3.buffer
   try {
-    await writeFile(fileHandle, data4)
+    await writeFile(fileHandle, Buffer.from(data))
   } catch (e) {
     console.error(e)
     alert("unable to save file")
