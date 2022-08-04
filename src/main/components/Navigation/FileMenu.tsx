@@ -191,7 +191,7 @@ export const FileMenu: FC<{ close: () => void }> = observer(({ close }) => {
       return
     }
 
-    fs.writeFile("/Users/caseywescott/Desktop/some.jpeg", "data", "binary")
+    // fs.writeFile("/Users/caseywescott/Desktop/some.jpeg", "data", "binary")
 
     if (counterResult) {
       let barr = ""
