@@ -16,6 +16,7 @@ export const handleSelectionDragEvents =
     transform: ControlCoordTransform,
     type: ValueEventType
   ) => {
+    console.log("test")
     const {
       song: { selectedTrack },
       pianoRollStore,

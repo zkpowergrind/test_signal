@@ -26,7 +26,8 @@ function eventsInSelection(events: TrackEvent[], selection: Selection) {
     y: selection.to.noteNumber,
     height: selection.from.noteNumber - selection.to.noteNumber,
   }
-  return events.filter(isNoteEvent).filter((b) =>
+
+  const ev = events.filter(isNoteEvent).filter((b) =>
     intersects(
       {
         x: b.tick,
@@ -37,6 +38,8 @@ function eventsInSelection(events: TrackEvent[], selection: Selection) {
       selectionRect
     )
   )
+  console.log(ev)
+  return ev
 }
 
 export const resizeSelection =
@@ -68,7 +71,7 @@ export const fixSelection =
     if (selectedTrack === undefined || selection === null) {
       return
     }
-
+    console.log("added selection in fixSelection")
     // 選択範囲を確定して選択範囲内のノートを選択状態にする
     // Confirm the selection and select the notes in the selection state
     pianoRollStore.selectedNoteIds = eventsInSelection(
@@ -110,6 +113,7 @@ export const moveSelection = (rootStore: RootStore) => (point: NotePoint) => {
   if (selectedTrack === undefined || selection === null) {
     return
   }
+  console.log("added selection in move Selection")
 
   // ノートと選択範囲を移動
   // Move notes and selection
@@ -243,6 +247,7 @@ export const resizeNotesInSelectionLeftBy =
             // Do not deform if the width is zero
             return { id }
           }
+
           return {
             id,
             tick,
@@ -354,6 +359,8 @@ export const startSelection =
   }
 
 export const resetSelection = (rootStore: RootStore) => () => {
+  console.log("resetSelection")
+
   rootStore.pianoRollStore.selection = null
   rootStore.pianoRollStore.selectedNoteIds = []
 }
@@ -512,6 +519,7 @@ export const duplicateSelection = (rootStore: RootStore) => () => {
 export const addNoteToSelection =
   (rootStore: RootStore) => (noteId: number) => {
     rootStore.pianoRollStore.selectedNoteIds.push(noteId)
+    console.log("addNoteToSelection")
   }
 
 export const removeNoteFromSelection =
@@ -525,7 +533,7 @@ export const removeNoteFromSelection =
     if (selectedTrack === undefined || selectedNoteIds.length === 0) {
       return
     }
-
+    console.log("removeNoteFromSelection")
     pianoRollStore.selectedNoteIds = selectedNoteIds.filter(
       (id) => id !== noteId
     )
