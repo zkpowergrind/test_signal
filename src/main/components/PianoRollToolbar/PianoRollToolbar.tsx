@@ -3,6 +3,7 @@ import { observer } from "mobx-react-lite"
 import { FC, useCallback } from "react"
 import { useStores } from "../../hooks/useStores"
 import InstrumentBrowser from "../InstrumentBrowser/InstrumentBrowser"
+import { SharknetMenuButton } from "../Sharknet/SharknetMenuButton"
 import { AutoScrollButton } from "../Toolbar/AutoScrollButton"
 import QuantizeSelector from "../Toolbar/QuantizeSelector/QuantizeSelector"
 import { Toolbar } from "../Toolbar/Toolbar"
@@ -53,6 +54,8 @@ export const PianoRollToolbar: FC = observer(() => {
       <TrackListMenuButton />
 
       <TrackNameInput />
+
+      <SharknetMenuButton />
 
       <EventListButton />
 

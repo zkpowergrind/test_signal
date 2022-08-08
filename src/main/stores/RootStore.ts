@@ -19,6 +19,7 @@ import { PromptStore } from "./PromptStore"
 import { registerReactions } from "./reactions"
 import RootViewStore from "./RootViewStore"
 import Router from "./Router"
+import { SharknetStore } from "./SharknetStore"
 import TempoEditorStore from "./TempoEditorStore"
 import { ToastStore } from "./ToastStore"
 
@@ -43,6 +44,7 @@ export default class RootStore {
   readonly synthGroup = new GroupOutput()
   readonly midiInput = new MIDIInput()
   readonly midiRecorder: MIDIRecorder
+  readonly sharknet = new SharknetStore()
 
   constructor() {
     makeObservable(this, {
