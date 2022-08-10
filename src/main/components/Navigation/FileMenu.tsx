@@ -2,7 +2,6 @@ import { Divider, MenuItem } from "@mui/material"
 import { useStarknetCall } from "@starknet-react/core"
 import { observer } from "mobx-react-lite"
 import { FC } from "react"
-import { toHex } from "starknet/dist/utils/number"
 import { localized } from "../../../common/localize/localizedString"
 import { createSong } from "../../actions"
 
@@ -194,43 +193,14 @@ export const FileMenu: FC<{ close: () => void }> = observer(({ close }) => {
     // fs.writeFile("/Users/caseywescott/Desktop/some.jpeg", "data", "binary")
 
     if (counterResult) {
-      let barr = ""
-      let barr1 = ""
+      let buffer: any[] = []
 
       for (let i = 0; i < 20; i++) {
-        console.log(i)
-        const value4 = hex2a(toHex(counterResult[0][i]))
-        console.log(value4)
-
-        console.log(hex2bin(value4).slice(4))
-        barr += hex2bin(value4).slice(4)
-        barr1 += value4
-      }
-      console.log(barr)
-
-      console.log(barr1)
-
-      console.log(hex2bin(barr1))
-
-      for (let i = 0; i < barr1.length - 1; i++) {
-        console.log(i)
-        console.log(barr1.charAt(i))
+        buffer = buffer.concat(counterResult[0][i].toArray())
       }
 
-      var buffer = new ArrayBuffer(barr.length / 8)
       var view = new Uint8Array(buffer)
-
-      for (let i = 0; i < barr.length / 8; i += 1) {
-        //view[i] = parseInt(barr.slice(i * 8, i * 8 + 8), 2)
-        view[i] = parseInt(barr.slice(i * 8, i * 8 + 8), 2)
-
-        console.log("view[i]", i)
-
-        console.log(barr.slice(i * 8, i * 8 + 8))
-        console.log(parseInt(barr.slice(i * 8, i * 8 + 8), 2))
-      }
-
-      console.log(view)
+      console.log(view, buffer, counterResult)
 
       await saveStarknetFile(rootStore, view)
     }
