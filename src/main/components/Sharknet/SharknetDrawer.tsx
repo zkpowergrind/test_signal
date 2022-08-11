@@ -30,7 +30,12 @@ const AutoScrollIcon = styled(KeyboardTab)`
   height: 2rem;
   font-size: 1.3rem;
 `
-const contractOptions = [{ name: "Algorithm", value: "Algorithim" }]
+const contractOptions = [
+  { name: "Shearing", value: "Shearing" },
+  { name: "Counterpoint", value: "Counterpoint" },
+  { name: "Maj7", value: "Maj7" },
+  { name: "Maj6", value: "Maj6" },
+]
 const keyNOptions = ["C", "D"]
 const keyCOptions = ["Major", "Minor"]
 const HARMONY_MAX_VALUE = 10
@@ -59,6 +64,7 @@ export const SharknetDrawer: FC = observer(() => {
             value={drawerOptions.contract}
             size="small"
             onChange={(ev) => onChangeForm("contract", ev.target.value)}
+            defaultValue="Shearing"
           >
             {contractOptions.map((contractOption, index) => (
               <MenuItem key={index} value={contractOption.value}>
@@ -74,6 +80,7 @@ export const SharknetDrawer: FC = observer(() => {
               value={drawerOptions.keyN}
               onChange={(ev) => onChangeForm("keyN", ev.target.value)}
               size="small"
+              defaultValue="C"
             >
               {keyNOptions.map((opt, index) => (
                 <MenuItem key={index} value={opt}>
@@ -87,6 +94,7 @@ export const SharknetDrawer: FC = observer(() => {
               value={drawerOptions.keyC}
               onChange={(ev) => onChangeForm("keyC", ev.target.value)}
               size="small"
+              defaultValue="Major"
             >
               {keyCOptions.map((opt, index) => (
                 <MenuItem key={index} value={opt}>
