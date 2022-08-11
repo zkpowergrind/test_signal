@@ -45,6 +45,7 @@ const INVERSION_MIN_VALUE = 0
 
 export const SharknetDrawer: FC = observer(() => {
   const { sharknet } = useStores()
+  const rootStore = useStores()
   const drawerOptions = sharknet?.drawerOptions || {}
   const onChangeForm = (key: string, value: string | number) => {
     sharknet.drawerOptions = {
@@ -54,6 +55,7 @@ export const SharknetDrawer: FC = observer(() => {
   }
   const onCompute = () => {
     console.log("handle compute", sharknet?.drawerOptions)
+    console.log("Selectednotes", rootStore.selectedNotesStore)
   }
 
   return (

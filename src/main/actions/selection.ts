@@ -26,7 +26,6 @@ function eventsInSelection(events: TrackEvent[], selection: Selection) {
     y: selection.to.noteNumber,
     height: selection.from.noteNumber - selection.to.noteNumber,
   }
-
   const ev = events.filter(isNoteEvent).filter((b) =>
     intersects(
       {
@@ -38,7 +37,6 @@ function eventsInSelection(events: TrackEvent[], selection: Selection) {
       selectionRect
     )
   )
-  console.log(ev)
   return ev
 }
 
@@ -67,18 +65,15 @@ export const fixSelection =
       pianoRollStore,
       pianoRollStore: { selection },
     } = rootStore
-
     if (selectedTrack === undefined || selection === null) {
       return
     }
     console.log("added selection in fixSelection")
     // 選択範囲を確定して選択範囲内のノートを選択状態にする
     // Confirm the selection and select the notes in the selection state
-    pianoRollStore.selectedNoteIds = eventsInSelection(
-      selectedTrack.events,
-      selection
-    ).map((e) => e.id)
-
+    const SelectedNotes = eventsInSelection(selectedTrack.events, selection)
+    rootStore.selectedNotesStore.push(SelectedNotes)
+    pianoRollStore.selectedNoteIds = SelectedNotes.map((e) => e.id)
     if (clearRect) {
       pianoRollStore.selection = null
     }

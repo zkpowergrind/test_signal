@@ -1,6 +1,7 @@
 import { makeObservable, observable } from "mobx"
 import Player from "../../common/player"
 import Song, { emptySong } from "../../common/song"
+import { NoteEvent } from "../../common/track"
 import TrackMute from "../../common/trackMute"
 import { SerializedState } from "../actions/history"
 import { GroupOutput } from "../services/GroupOutput"
@@ -19,6 +20,7 @@ import { PromptStore } from "./PromptStore"
 import { registerReactions } from "./reactions"
 import RootViewStore from "./RootViewStore"
 import Router from "./Router"
+import SelectedNotesStore from "./SelectedNotesStore"
 import { SharknetStore } from "./SharknetStore"
 import TempoEditorStore from "./TempoEditorStore"
 import { ToastStore } from "./ToastStore"
@@ -28,6 +30,7 @@ export default class RootStore {
   readonly router = new Router()
   readonly trackMute = new TrackMute()
   readonly historyStore = new HistoryStore<SerializedState>()
+  readonly selectedNotesStore = new SelectedNotesStore<NoteEvent[]>()
   readonly rootViewStore = new RootViewStore()
   readonly pianoRollStore: PianoRollStore
   readonly arrangeViewStore = new ArrangeViewStore(this)
@@ -56,7 +59,7 @@ export default class RootStore {
       context,
       "https://cdn.jsdelivr.net/gh/ryohey/signal@4569a31/public/A320U.sf2"
     )
-// "https://cdn.jsdelivr.net/gh/ryohey/signal@4569a31/public/A320U.sf2"
+    // "https://cdn.jsdelivr.net/gh/ryohey/signal@4569a31/public/A320U.sf2"
     //https://github.com/caseywescott/soundfonts/blob/main/The_Nes_Soundfont5.sf2?raw=true
 
     const metronomeSynth = new SoundFontSynth(
