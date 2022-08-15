@@ -1,170 +1,211 @@
 [
-    {
-        "inputs": [],
-        "name": "counter",
-        "outputs": [
-            {
-                "name": "z_len",
-                "type": "felt"
-            },
-            {
-                "name": "z",
-                "type": "felt*"
-            }
-        ],
-        "stateMutability": "view",
-        "type": "function"
-    },
-    {
-        "inputs": [],
-        "name": "counter1",
-        "outputs": [
-            {
-                "name": "z_len",
-                "type": "felt"
-            },
-            {
-                "name": "z",
-                "type": "felt*"
-            }
-        ],
-        "stateMutability": "view",
-        "type": "function"
-    },
-    {
-        "inputs": [
-            {
-                "name": "hex",
-                "type": "felt"
-            }
-        ],
-        "name": "hex_to_ascii",
-        "outputs": [
-            {
-                "name": "ascii",
-                "type": "felt"
-            }
-        ],
-        "stateMutability": "view",
-        "type": "function"
-    },
-    {
-        "inputs": [
-            {
-                "name": "ascii",
-                "type": "felt"
-            }
-        ],
-        "name": "ascii_to_hex",
-        "outputs": [
-            {
-                "name": "hex",
-                "type": "felt"
-            }
-        ],
-        "stateMutability": "view",
-        "type": "function"
-    },
-    {
-        "inputs": [
-            {
-                "name": "hex",
-                "type": "felt"
-            }
-        ],
-        "name": "convert_hex_to_char",
-        "outputs": [
-            {
-                "name": "char",
-                "type": "felt"
-            }
-        ],
-        "stateMutability": "view",
-        "type": "function"
-    },
-    {
-        "inputs": [
-            {
-                "name": "char",
-                "type": "felt"
-            }
-        ],
-        "name": "convert_char_to_hex",
-        "outputs": [
-            {
-                "name": "hex",
-                "type": "felt"
-            }
-        ],
-        "stateMutability": "view",
-        "type": "function"
-    },
-    {
-        "inputs": [
-            {
-                "name": "num",
-                "type": "felt"
-            }
-        ],
-        "name": "convert_numerical_felt_to_vlq_literal",
-        "outputs": [
-            {
-                "name": "vlq",
-                "type": "felt"
-            }
-        ],
-        "stateMutability": "view",
-        "type": "function"
-    },
-    {
-        "inputs": [
-            {
-                "name": "num",
-                "type": "felt"
-            }
-        ],
-        "name": "num2vlq",
-        "outputs": [
-            {
-                "name": "vlq",
-                "type": "felt"
-            }
-        ],
-        "stateMutability": "view",
-        "type": "function"
-    },
-    {
-        "inputs": [
-            {
-                "name": "vlq",
-                "type": "felt"
-            }
-        ],
-        "name": "convert_vlq_literal_to_numerical_felt",
-        "outputs": [
-            {
-                "name": "num",
-                "type": "felt"
-            }
-        ],
-        "stateMutability": "view",
-        "type": "function"
-    },
-    {
-        "inputs": [
-            {
-                "name": "vlq",
-                "type": "felt"
-            }
-        ],
-        "name": "vlq2num",
-        "outputs": [
-            {
-                "name": "num",
-                "type": "felt"
-            }
-        ],
-        "stateMutability": "view",
-        "type": "function"
-    }
+  {
+    "inputs": [],
+    "name": "counter",
+    "outputs": [
+      {
+        "name": "z_len",
+        "type": "felt"
+      },
+      {
+        "name": "z",
+        "type": "felt*"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "counter2",
+    "outputs": [
+      {
+        "name": "z_len",
+        "type": "felt"
+      },
+      {
+        "name": "z",
+        "type": "felt*"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "counter1",
+    "outputs": [
+      {
+        "name": "z_len",
+        "type": "felt"
+      },
+      {
+        "name": "z",
+        "type": "felt*"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "name": "hex",
+        "type": "felt"
+      }
+    ],
+    "name": "hex_to_ascii",
+    "outputs": [
+      {
+        "name": "ascii",
+        "type": "felt"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "name": "ascii",
+        "type": "felt"
+      }
+    ],
+    "name": "ascii_to_hex",
+    "outputs": [
+      {
+        "name": "hex",
+        "type": "felt"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "name": "hex",
+        "type": "felt"
+      }
+    ],
+    "name": "convert_hex_to_char",
+    "outputs": [
+      {
+        "name": "char",
+        "type": "felt"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "name": "char",
+        "type": "felt"
+      }
+    ],
+    "name": "convert_char_to_hex",
+    "outputs": [
+      {
+        "name": "hex",
+        "type": "felt"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "name": "num",
+        "type": "felt"
+      }
+    ],
+    "name": "convert_numerical_felt_to_vlq_literal",
+    "outputs": [
+      {
+        "name": "vlq",
+        "type": "felt"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "name": "num",
+        "type": "felt"
+      }
+    ],
+    "name": "num2vlq",
+    "outputs": [
+      {
+        "name": "vlq",
+        "type": "felt"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "name": "vlq",
+        "type": "felt"
+      }
+    ],
+    "name": "convert_vlq_literal_to_numerical_felt",
+    "outputs": [
+      {
+        "name": "num",
+        "type": "felt"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "name": "vlq",
+        "type": "felt"
+      }
+    ],
+    "name": "vlq2num",
+    "outputs": [
+      {
+        "name": "num",
+        "type": "felt"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "name": "in_len",
+        "type": "felt"
+      },
+      {
+        "name": "in",
+        "type": "felt*"
+      }
+    ],
+    "name": "counter_argarr_test",
+    "outputs": [
+      {
+        "name": "out_len",
+        "type": "felt"
+      },
+      {
+        "name": "out",
+        "type": "felt*"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  }
 ]
