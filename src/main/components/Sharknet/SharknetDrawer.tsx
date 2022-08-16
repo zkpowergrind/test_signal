@@ -7,9 +7,11 @@ import {
   Select,
   Slider,
 } from "@mui/material"
+import { useStarknetCall } from "@starknet-react/core"
 import { observer } from "mobx-react-lite"
 import { FC } from "react"
 import { localized } from "../../../common/localize/localizedString"
+import { useCounterContract } from "../../hooks/useCounterContract"
 import { useStores } from "../../hooks/useStores"
 import { NumberPicker } from "../Toolbar/QuantizeSelector/NumberPicker"
 import { ToolbarButton } from "../Toolbar/ToolbarButton"
@@ -47,6 +49,15 @@ export const SharknetDrawer: FC = observer(() => {
   const { sharknet } = useStores()
   const rootStore = useStores()
   const drawerOptions = sharknet?.drawerOptions || {}
+
+  const { contract: counter } = useCounterContract()
+  const { data } = useStarknetCall({
+    contract: counter,
+    method: "counter_argarr_test",
+    args: [[3, 4]],
+    options: { watch: true },
+  })
+
   const onChangeForm = (key: string, value: string | number) => {
     sharknet.drawerOptions = {
       ...sharknet.drawerOptions,
@@ -56,6 +67,9 @@ export const SharknetDrawer: FC = observer(() => {
   const onCompute = () => {
     console.log("handle compute", sharknet?.drawerOptions)
     console.log("Selectednotes", rootStore.selectedNotesStore)
+    if (data) {
+      console.log(console.log(data[0].map((bn: any) => bn.toString())))
+    }
   }
 
   return (
