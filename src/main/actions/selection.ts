@@ -6,13 +6,13 @@ import {
   clampSelection,
   movedSelection,
   regularizedSelection,
-  Selection,
+  Selection
 } from "../../common/selection/Selection"
 import { isNoteEvent, NoteEvent, TrackEvent } from "../../common/track"
 import { clampNotePoint, NotePoint } from "../../common/transform/NotePoint"
 import {
   isPianoNotesClipboardData,
-  PianoNotesClipboardData,
+  PianoNotesClipboardData
 } from "../clipboard/clipboardTypes"
 import clipboard from "../services/Clipboard"
 import RootStore from "../stores/RootStore"
@@ -71,9 +71,9 @@ export const fixSelection =
     console.log("added selection in fixSelection")
     // 選択範囲を確定して選択範囲内のノートを選択状態にする
     // Confirm the selection and select the notes in the selection state
-    const SelectedNotes = eventsInSelection(selectedTrack.events, selection)
-    rootStore.selectedNotesStore.push(SelectedNotes)
-    pianoRollStore.selectedNoteIds = SelectedNotes.map((e) => e.id)
+    const selectedNotes = eventsInSelection(selectedTrack.events, selection)
+    rootStore.selectedNotes.push(selectedNotes)
+    pianoRollStore.selectedNoteIds = selectedNotes.map((e) => e.id)
     if (clearRect) {
       pianoRollStore.selection = null
     }

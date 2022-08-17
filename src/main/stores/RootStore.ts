@@ -1,7 +1,6 @@
 import { makeObservable, observable } from "mobx"
 import Player from "../../common/player"
 import Song, { emptySong } from "../../common/song"
-import { NoteEvent } from "../../common/track"
 import TrackMute from "../../common/trackMute"
 import { SerializedState } from "../actions/history"
 import { GroupOutput } from "../services/GroupOutput"
@@ -30,7 +29,6 @@ export default class RootStore {
   readonly router = new Router()
   readonly trackMute = new TrackMute()
   readonly historyStore = new HistoryStore<SerializedState>()
-  readonly selectedNotesStore = new SelectedNotesStore<NoteEvent[]>()
   readonly rootViewStore = new RootViewStore()
   readonly pianoRollStore: PianoRollStore
   readonly arrangeViewStore = new ArrangeViewStore(this)
@@ -48,6 +46,7 @@ export default class RootStore {
   readonly midiInput = new MIDIInput()
   readonly midiRecorder: MIDIRecorder
   readonly sharknet = new SharknetStore()
+  readonly selectedNotes = new SelectedNotesStore()
 
   constructor() {
     makeObservable(this, {

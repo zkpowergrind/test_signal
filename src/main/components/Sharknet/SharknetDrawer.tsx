@@ -9,10 +9,12 @@ import {
 } from "@mui/material"
 import { useStarknetCall } from "@starknet-react/core"
 import { observer } from "mobx-react-lite"
-import { FC } from "react"
+import { FC, useState } from "react"
 import { localized } from "../../../common/localize/localizedString"
+import { NoteEvent } from "../../../common/track"
 import { useCounterContract } from "../../hooks/useCounterContract"
 import { useStores } from "../../hooks/useStores"
+import { DrawerOptions } from "../../stores/SharknetStore"
 import { NumberPicker } from "../Toolbar/QuantizeSelector/NumberPicker"
 import { ToolbarButton } from "../Toolbar/ToolbarButton"
 
@@ -46,15 +48,16 @@ const INVERSION_MAX_VALUE = 10
 const INVERSION_MIN_VALUE = 0
 
 export const SharknetDrawer: FC = observer(() => {
-  const { sharknet } = useStores()
-  const rootStore = useStores()
+  const { sharknet, selectedNotes } = useStores()
   const drawerOptions = sharknet?.drawerOptions || {}
+
+  const [callArgs, setCallArgs] = useState<number[][]>([[]])
 
   const { contract: counter } = useCounterContract()
   const { data } = useStarknetCall({
     contract: counter,
     method: "counter_argarr_test",
-    args: [[3, 4]],
+    args: callArgs,
     options: { watch: true },
   })
 
@@ -64,12 +67,46 @@ export const SharknetDrawer: FC = observer(() => {
       [key]: value,
     }
   }
+
+  const serializeNotes = (notes: NoteEvent[]) => {
+    const nums: number[] = []
+    notes.map((note) => {
+      nums.push(note.duration)
+      nums.push(note.noteNumber)
+      nums.push(note.tick)
+      nums.push(note.velocity)
+    })
+    return nums
+  }
+
+  const serializeDrawerOptions = (drawerOptions: DrawerOptions) => {
+    const nums: number[] = []
+    // TOOD need a way to serialize these strings
+    nums.push(
+      contractOptions.findIndex(
+        (contract) => contract.value === drawerOptions.contract
+      )
+    )
+    nums.push(keyNOptions.findIndex((opt) => opt === drawerOptions.keyN || ""))
+    nums.push(keyCOptions.findIndex((opt) => opt === drawerOptions.keyC || ""))
+    nums.push(drawerOptions.harmonies)
+    nums.push(drawerOptions.inversion)
+    nums.push(drawerOptions.spread)
+    return nums
+  }
   const onCompute = () => {
     console.log("handle compute", sharknet?.drawerOptions)
-    console.log("Selectednotes", rootStore.selectedNotesStore)
-    if (data) {
-      console.log(console.log(data[0].map((bn: any) => bn.toString())))
-    }
+    console.log("Selectednotes", selectedNotes.selectedNotes)
+    // if (data) {
+    //   console.log(console.log(data[0].map((bn: any) => bn.toString())))
+    // }
+    // setCallArgs()
+    const serializedNoted = serializeNotes(selectedNotes.selectedNotes)
+    const serializedDrawerOptions = serializeDrawerOptions(
+      sharknet.drawerOptions
+    )
+    setCallArgs([serializedNoted, serializedDrawerOptions])
+    console.log([serializedNoted, serializedDrawerOptions])
   }
 
   return (

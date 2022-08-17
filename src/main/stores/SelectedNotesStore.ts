@@ -1,7 +1,9 @@
+import { NoteEvent } from "../../common/track"
+
 export default class SelectionNotesStore<State> {
-  SelectedNotes: Object = {}
+  selectedNotes: NoteEvent[] = []
 
   push(currentState: State) {
-    this.SelectedNotes = currentState
+    this.selectedNotes = currentState as any
   }
 }
