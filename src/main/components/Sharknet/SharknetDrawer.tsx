@@ -40,23 +40,46 @@ const contractOptions = [
   { name: "Maj7", value: "Maj7" },
   { name: "Maj6", value: "Maj6" },
 ]
-const keyNOptions = ["C", "D"]
-const keyCOptions = ["Major", "Minor"]
-const HARMONY_MAX_VALUE = 10
+const keyNOptions = [
+  "C",
+  "C#",
+  "D",
+  "D#",
+  "E",
+  "F",
+  "F#",
+  "G",
+  "G#",
+  "A",
+  "A#",
+  "B",
+]
+const keyCOptions = [
+  "Major",
+  "Minor",
+  "Dorian",
+  "Lydian",
+  "Mixolydian",
+  "Phrygian",
+  "Locrian",
+  "Aeolian",
+]
+const HARMONY_MAX_VALUE = 6
 const HARMONY_MIN_VALUE = 0
-const INVERSION_MAX_VALUE = 10
+const INVERSION_MAX_VALUE = 6
 const INVERSION_MIN_VALUE = 0
 
 export const SharknetDrawer: FC = observer(() => {
   const { sharknet, selectedNotes } = useStores()
   const drawerOptions = sharknet?.drawerOptions || {}
-
+  const rootStore = useStores()
   const [callArgs, setCallArgs] = useState<number[][]>([[]])
 
   const { contract: counter } = useCounterContract()
   const { data } = useStarknetCall({
     contract: counter,
-    method: "counter_argarr_test",
+    // method: "counter_argarr_test",
+    method: "get_notes_of_key4",
     args: callArgs,
     options: { watch: true },
   })
@@ -85,7 +108,7 @@ export const SharknetDrawer: FC = observer(() => {
     nums.push(
       contractOptions.findIndex(
         (contract) => contract.value === drawerOptions.contract
-      )
+      ) + 1
     )
     nums.push(keyNOptions.findIndex((opt) => opt === drawerOptions.keyN || ""))
     nums.push(keyCOptions.findIndex((opt) => opt === drawerOptions.keyC || ""))
@@ -97,16 +120,33 @@ export const SharknetDrawer: FC = observer(() => {
   const onCompute = () => {
     console.log("handle compute", sharknet?.drawerOptions)
     console.log("Selectednotes", selectedNotes.selectedNotes)
-    // if (data) {
-    //   console.log(console.log(data[0].map((bn: any) => bn.toString())))
-    // }
+    if (data) {
+      //console.log(console.log(data[0].map((bn: any) => bn.toString())))
+      console.log("data")
+      console.log(data.length)
+      console.log(data[0])
+      console.log(data[0].length)
+
+      for (let i = 0; i < data[0].length; i = i + 4) {
+        rootStore.song.selectedTrack?.addEvent<NoteEvent>({
+          type: "channel",
+          subtype: "note",
+          duration: data[0][i],
+          tick: data[0][i + 2],
+          velocity: data[0][i + 3],
+          noteNumber: data[0][i + 1],
+        })
+      }
+
+      // console.log(data[0].map((bn: any) => bn.toString()))
+    }
     // setCallArgs()
     const serializedNoted = serializeNotes(selectedNotes.selectedNotes)
     const serializedDrawerOptions = serializeDrawerOptions(
       sharknet.drawerOptions
     )
     setCallArgs([serializedNoted, serializedDrawerOptions])
-    console.log([serializedNoted, serializedDrawerOptions])
+    //console.log([serializedNoted, serializedDrawerOptions])
   }
 
   return (
@@ -179,7 +219,7 @@ export const SharknetDrawer: FC = observer(() => {
         </div>
 
         <div style={{ display: "flex", alignItems: "center", marginTop: 10 }}>
-          <label style={{ marginRight: 10 }}>
+          <label style={{ marginRight: 20 }}>
             {localized("inversion", "Inversion")}
           </label>
           <NumberPicker

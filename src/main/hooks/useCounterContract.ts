@@ -9,7 +9,9 @@ export function useCounterContract() {
     abi: CounterAbi as Abi,
     address:
       //"0x05d8a0ddef7d81623f3adb030d2338a26f79c2eb3d4ec322b43041cd5417f58e",
-      "0x05fce2b74494bfe7da1e7f49e55f5edd3a4473545bafccf6923548ad01727efe",
+      // "0x05fce2b74494bfe7da1e7f49e55f5edd3a4473545bafccf6923548ad01727efe",
+      //"0x060fe3b9581868d225c14da70c3b418d6c4fbc8a8ba42e50f60b97f6eca002ce",
+      "0x0513e5a3682977a0325752b21033b0c5d108f78a568e55fa1e14d35b2e60f7f4",
   })
 }
 

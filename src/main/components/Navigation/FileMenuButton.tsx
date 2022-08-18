@@ -44,7 +44,7 @@ export const FileMenuButton: FC = observer(() => {
         id="tab-file"
       >
         <span style={{ marginLeft: "0.25rem" }}>
-          {localized("file", "Major")}
+          {localized("file", "File")}
         </span>
         <KeyboardArrowDown style={{ width: "1rem", marginLeft: "0.25rem" }} />
       </Tab>
