@@ -97,16 +97,16 @@ export const SharknetDrawer: FC = observer(() => {
   const onCompute = () => {
     console.log("handle compute", sharknet?.drawerOptions)
     console.log("Selectednotes", selectedNotes.selectedNotes)
-    // if (data) {
-    //   console.log(console.log(data[0].map((bn: any) => bn.toString())))
-    // }
-    // setCallArgs()
+
     const serializedNoted = serializeNotes(selectedNotes.selectedNotes)
     const serializedDrawerOptions = serializeDrawerOptions(
       sharknet.drawerOptions
     )
-    setCallArgs([serializedNoted, serializedDrawerOptions])
-    console.log([serializedNoted, serializedDrawerOptions])
+    // setCallArgs([serializedNoted, serializedDrawerOptions])
+    const mergedParams = serializedNoted.concat(serializedDrawerOptions)
+    const withLength = [[mergedParams.length].concat(mergedParams)]
+    setCallArgs(withLength)
+    console.log(withLength)
   }
 
   return (

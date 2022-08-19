@@ -15,7 +15,7 @@ export default function ConnectWallet() {
           alignItems: "center",
         }}
       >
-        <p>Account: {account.slice(0, 10)}...</p>
+        <p>Account: {account}</p>
         <Button
           onClick={() => disconnect()}
           color="error"
