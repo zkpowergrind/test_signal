@@ -204,6 +204,42 @@ export const createNote =
     return selectedTrack.addEvent(note)
   }
 
+export const createNote2 =
+  (rootStore: RootStore) =>
+  (
+    tick: number,
+    noteNumber: number,
+    notevelocity: number,
+    noteduration: number
+  ) => {
+    const {
+      song,
+      pianoRollStore,
+      player,
+      pianoRollStore: { quantizer },
+    } = rootStore
+    const selectedTrack = song.selectedTrack
+    if (selectedTrack === undefined || selectedTrack.channel == undefined) {
+      return
+    }
+    pushHistory(rootStore)()
+
+    tick = selectedTrack.isRhythmTrack
+      ? quantizer.round(tick)
+      : quantizer.floor(tick)
+
+    const note: Omit<NoteEvent, "id"> = {
+      type: "channel",
+      subtype: "note",
+      noteNumber: noteNumber,
+      tick,
+      velocity: notevelocity,
+      duration: noteduration,
+    }
+
+    return selectedTrack.addEvent(note)
+  }
+
 export const muteNote = (rootStore: RootStore) => (noteNumber: number) => {
   const { song, player } = rootStore
   const selectedTrack = song.selectedTrack

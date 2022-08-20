@@ -12,6 +12,8 @@ import { observer } from "mobx-react-lite"
 import { FC, useState } from "react"
 import { localized } from "../../../common/localize/localizedString"
 import { NoteEvent } from "../../../common/track"
+import { addNoteToSelection } from "../../actions/selection"
+import { createNote2 } from "../../actions/track"
 import { useCounterContract } from "../../hooks/useCounterContract"
 import { useStores } from "../../hooks/useStores"
 import { DrawerOptions } from "../../stores/SharknetStore"
@@ -136,6 +138,18 @@ export const SharknetDrawer: FC = observer(() => {
           velocity: data[0][i + 3],
           noteNumber: data[0][i + 1],
         })
+
+        const note = createNote2(rootStore)(
+          data[0][i + 2],
+          data[0][i + 1],
+          data[0][i + 3],
+          data[0][i]
+        )
+        if (note === undefined) {
+          return
+        }
+        console.log(note.id)
+        addNoteToSelection(rootStore)(note.id)
       }
 
       // console.log(data[0].map((bn: any) => bn.toString()))
