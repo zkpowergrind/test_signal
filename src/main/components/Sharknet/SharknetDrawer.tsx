@@ -52,7 +52,7 @@ const INVERSION_MIN_VALUE = 0
 export const SharknetDrawer: FC = observer(() => {
   const { sharknet, selectedNotes } = useStores()
   const drawerOptions = sharknet?.drawerOptions || {}
-
+  const rootStore = useStores()
   const [callArgs, setCallArgs] = useState<number[][]>([[]])
 
   const { contract: counter } = useCounterContract()
