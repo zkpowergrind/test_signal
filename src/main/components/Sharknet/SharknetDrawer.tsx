@@ -42,8 +42,29 @@ const contractOptions = [
   { name: "Maj7", value: "Maj7" },
   { name: "Maj6", value: "Maj6" },
 ]
-const keyNOptions = ["C", "D"]
-const keyCOptions = ["Major", "Minor"]
+const keyNOptions = [
+  "C",
+  "C#",
+  "D",
+  "D#",
+  "E",
+  "F",
+  "F#",
+  "G",
+  "G#",
+  "A",
+  "A#",
+  "B",
+]
+const keyCOptions = [
+  "Major",
+  "Minor",
+  "Dorian",
+  "Lydian",
+  "Mixolydian",
+  "Aeloian",
+  "Phyrigian",
+]
 const HARMONY_MAX_VALUE = 5
 const HARMONY_MIN_VALUE = 0
 const INVERSION_MAX_VALUE = 5
@@ -58,7 +79,7 @@ export const SharknetDrawer: FC = observer(() => {
   const { contract: counter } = useCounterContract()
   const { data } = useStarknetCall({
     contract: counter,
-    method: "get_notes_of_key5",
+    method: "get_notes_of_key6",
     args: callArgs,
     options: { watch: true },
   })

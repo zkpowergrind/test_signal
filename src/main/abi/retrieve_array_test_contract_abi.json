@@ -752,15 +752,73 @@
     {
         "inputs": [
             {
-                "name": "keynum",
+                "name": "tonic",
                 "type": "felt"
             },
             {
+                "name": "mode1_len",
+                "type": "felt"
+            },
+            {
+                "name": "mode1",
+                "type": "felt*"
+            }
+        ],
+        "name": "get_notes_of_key3",
+        "outputs": [
+            {
+                "name": "mode_len",
+                "type": "felt"
+            },
+            {
+                "name": "mode",
+                "type": "felt*"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
                 "name": "tonic",
+                "type": "felt"
+            },
+            {
+                "name": "keynum",
                 "type": "felt"
             }
         ],
         "name": "keynum_to_mode_index",
+        "outputs": [
+            {
+                "name": "idx",
+                "type": "felt"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "name": "tonic",
+                "type": "felt"
+            },
+            {
+                "name": "keynum",
+                "type": "felt"
+            },
+            {
+                "name": "mode2_len",
+                "type": "felt"
+            },
+            {
+                "name": "mode2",
+                "type": "felt*"
+            }
+        ],
+        "name": "keynum_to_mode_index2",
         "outputs": [
             {
                 "name": "idx",
@@ -870,6 +928,105 @@
             {
                 "name": "scale_steps",
                 "type": "felt"
+            },
+            {
+                "name": "mode_len",
+                "type": "felt"
+            },
+            {
+                "name": "mode",
+                "type": "felt*"
+            }
+        ],
+        "name": "modal_transposition2",
+        "outputs": [
+            {
+                "name": "numsteps",
+                "type": "felt"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "name": "arr_len",
+                "type": "felt"
+            },
+            {
+                "name": "arr",
+                "type": "felt*"
+            },
+            {
+                "name": "start_scale_degree",
+                "type": "felt"
+            },
+            {
+                "name": "scale_steps",
+                "type": "felt"
+            },
+            {
+                "name": "stepsum",
+                "type": "felt"
+            },
+            {
+                "name": "inc",
+                "type": "felt"
+            }
+        ],
+        "name": "recurse_steps_and_sum2",
+        "outputs": [
+            {
+                "name": "numsteps",
+                "type": "felt"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "name": "keynum",
+                "type": "felt"
+            },
+            {
+                "name": "scale_steps",
+                "type": "felt"
+            },
+            {
+                "name": "tonic",
+                "type": "felt"
+            },
+            {
+                "name": "mode_len",
+                "type": "felt"
+            },
+            {
+                "name": "mode",
+                "type": "felt*"
+            }
+        ],
+        "name": "modal_transposition2wrapper",
+        "outputs": [
+            {
+                "name": "new_keynum",
+                "type": "felt"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "name": "start_scale_degree",
+                "type": "felt"
+            },
+            {
+                "name": "scale_steps",
+                "type": "felt"
             }
         ],
         "name": "modal_transposition_descend2",
@@ -944,9 +1101,13 @@
             {
                 "name": "arr_idx",
                 "type": "felt"
+            },
+            {
+                "name": "inc",
+                "type": "felt"
             }
         ],
-        "name": "add_note_to_mode_steps4",
+        "name": "add_note_to_mode_steps5",
         "outputs": [],
         "stateMutability": "view",
         "type": "function"
@@ -962,7 +1123,7 @@
                 "type": "felt*"
             }
         ],
-        "name": "get_notes_of_key4",
+        "name": "get_notes_of_key5",
         "outputs": [
             {
                 "name": "mode_len",
@@ -1003,7 +1164,7 @@
                 "type": "felt"
             }
         ],
-        "name": "add_note_to_mode_steps5",
+        "name": "add_note_to_mode_steps6",
         "outputs": [],
         "stateMutability": "view",
         "type": "function"
@@ -1019,7 +1180,7 @@
                 "type": "felt*"
             }
         ],
-        "name": "get_notes_of_key5",
+        "name": "get_notes_of_key6",
         "outputs": [
             {
                 "name": "mode_len",
