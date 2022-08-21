@@ -954,6 +954,31 @@
     {
         "inputs": [
             {
+                "name": "mode1_len",
+                "type": "felt"
+            },
+            {
+                "name": "mode1",
+                "type": "felt*"
+            }
+        ],
+        "name": "get_notes_of_key4",
+        "outputs": [
+            {
+                "name": "mode_len",
+                "type": "felt"
+            },
+            {
+                "name": "mode",
+                "type": "felt*"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
                 "name": "arr_len",
                 "type": "felt"
             },
@@ -990,7 +1015,7 @@
                 "type": "felt*"
             }
         ],
-        "name": "get_notes_of_key4",
+        "name": "get_notes_of_key5",
         "outputs": [
             {
                 "name": "mode_len",

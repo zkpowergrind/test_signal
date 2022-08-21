@@ -10,7 +10,7 @@ export function useCounterContract() {
     address:
       //"0x05d8a0ddef7d81623f3adb030d2338a26f79c2eb3d4ec322b43041cd5417f58e",
       //"0x05fce2b74494bfe7da1e7f49e55f5edd3a4473545bafccf6923548ad01727efe",
-      "0x00be7cf1f2831ce3d868cdbccefe82846dc593d11e6c608ebb00770deb7963e0",
+      "0x06c51f86d763b404e75ddb6304f3f8cb8fb46636e401167c9fcae1289f40312d",
   })
 }
 
