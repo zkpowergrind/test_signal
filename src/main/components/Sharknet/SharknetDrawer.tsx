@@ -42,9 +42,9 @@ const contractOptions = [
 ]
 const keyNOptions = ["C", "D"]
 const keyCOptions = ["Major", "Minor"]
-const HARMONY_MAX_VALUE = 10
+const HARMONY_MAX_VALUE = 5
 const HARMONY_MIN_VALUE = 0
-const INVERSION_MAX_VALUE = 10
+const INVERSION_MAX_VALUE = 5
 const INVERSION_MIN_VALUE = 0
 
 export const SharknetDrawer: FC = observer(() => {
