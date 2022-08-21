@@ -997,6 +997,10 @@
             {
                 "name": "arr_idx",
                 "type": "felt"
+            },
+            {
+                "name": "inc",
+                "type": "felt"
             }
         ],
         "name": "add_note_to_mode_steps5",
