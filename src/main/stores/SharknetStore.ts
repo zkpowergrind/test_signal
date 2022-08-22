@@ -11,6 +11,9 @@ export interface DrawerOptions {
 
 export class SharknetStore {
   drawerOptions: DrawerOptions = {
+    contract: 'Shearing',
+    keyN: 'C',
+    keyC: 'Major',
     harmonies: 0,
     inversion: 0,
     spread: 50,

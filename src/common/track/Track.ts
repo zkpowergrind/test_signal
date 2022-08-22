@@ -5,7 +5,7 @@ import {
   ControllerEvent,
   ProgramChangeEvent,
   SetTempoEvent,
-  TrackNameEvent,
+  TrackNameEvent
 } from "midifile-ts"
 import { action, computed, makeObservable, observable, transaction } from "mobx"
 import { createModelSchema, list, primitive } from "serializr"
@@ -16,7 +16,7 @@ import { programChangeMidiEvent, trackNameMidiEvent } from "../midi/MidiEvent"
 import {
   isControllerEventWithType,
   isEndOfTrackEvent,
-  isNoteEvent,
+  isNoteEvent
 } from "./identify"
 import {
   getEndOfTrackEvent,
@@ -28,7 +28,7 @@ import {
   getTimeSignatureEvent,
   getTrackNameEvent,
   getVolume,
-  isTickBefore,
+  isTickBefore
 } from "./selector"
 import { TrackEvent, TrackEventOf } from "./TrackEvent"
 import { validateMidiEvent } from "./validate"
@@ -133,12 +133,14 @@ export default class Track {
   }
 
   addEvent<T extends TrackEvent>(e: Omit<T, "id">): T {
+    console.log(e,'xxxxx')
     const ev = this._addEvent(e)
     this.didAddEvent()
     return ev
   }
 
   addEvents<T extends TrackEvent>(events: Omit<T, "id">[]): T[] {
+    console.log(events,'xxxxx')
     const result = transaction(() => {
       const dontMoveChannelEvent = this.isConductorTrack
 
