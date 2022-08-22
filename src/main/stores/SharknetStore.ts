@@ -12,7 +12,7 @@ export interface DrawerOptions {
 export class SharknetStore {
   drawerOptions: DrawerOptions = {
     harmonies: 0,
-    inversion: 1,
+    inversion: 0,
     spread: 50,
   }
 

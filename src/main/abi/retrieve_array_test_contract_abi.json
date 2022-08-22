@@ -1111,12 +1111,53 @@
     {
         "inputs": [
             {
+                "name": "keynum",
+                "type": "felt"
+            },
+            {
+                "name": "scale_steps",
+                "type": "felt"
+            },
+            {
+                "name": "tonic",
+                "type": "felt"
+            },
+            {
+                "name": "mode_len",
+                "type": "felt"
+            },
+            {
+                "name": "mode",
+                "type": "felt*"
+            }
+        ],
+        "name": "modal_transposition2wrapper_descend",
+        "outputs": [
+            {
+                "name": "new_keynum",
+                "type": "felt"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
                 "name": "start_scale_degree",
                 "type": "felt"
             },
             {
                 "name": "scale_steps",
                 "type": "felt"
+            },
+            {
+                "name": "mode_len",
+                "type": "felt"
+            },
+            {
+                "name": "mode",
+                "type": "felt*"
             }
         ],
         "name": "modal_transposition_descend2",
