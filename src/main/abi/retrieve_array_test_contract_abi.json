@@ -333,6 +333,42 @@
                 "type": "felt"
             },
             {
+                "name": "seed",
+                "type": "felt"
+            },
+            {
+                "name": "offset",
+                "type": "felt"
+            }
+        ],
+        "name": "inc_arr_lcf_with_offset",
+        "outputs": [],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "name": "arr_len",
+                "type": "felt"
+            },
+            {
+                "name": "arr",
+                "type": "felt*"
+            },
+            {
+                "name": "arr_size",
+                "type": "felt"
+            },
+            {
+                "name": "modulus",
+                "type": "felt"
+            },
+            {
+                "name": "mult",
+                "type": "felt"
+            },
+            {
                 "name": "increment",
                 "type": "felt"
             },
@@ -362,6 +398,39 @@
             }
         ],
         "name": "get_lcf_list",
+        "outputs": [
+            {
+                "name": "arr_len",
+                "type": "felt"
+            },
+            {
+                "name": "arr",
+                "type": "felt*"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "name": "arr_size",
+                "type": "felt"
+            },
+            {
+                "name": "modulus",
+                "type": "felt"
+            },
+            {
+                "name": "mult",
+                "type": "felt"
+            },
+            {
+                "name": "offset",
+                "type": "felt"
+            }
+        ],
+        "name": "get_lcf_list_with_offset",
         "outputs": [
             {
                 "name": "arr_len",

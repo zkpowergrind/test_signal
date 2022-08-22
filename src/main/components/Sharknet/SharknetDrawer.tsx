@@ -37,6 +37,7 @@ const AutoScrollIcon = styled(KeyboardTab)`
 `
 const contractOptions = [
   { name: "Shearing", value: "Shearing" },
+  { name: "Two Part", value: "Two Part" },
   { name: "Counterpoint", value: "Counterpoint" },
   { name: "Maj7", value: "Maj7" },
   { name: "Maj6", value: "Maj6" },
