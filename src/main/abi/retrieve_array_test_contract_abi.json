@@ -1252,6 +1252,14 @@
             {
                 "name": "randinc",
                 "type": "felt"
+            },
+            {
+                "name": "mode1_len",
+                "type": "felt"
+            },
+            {
+                "name": "mode1",
+                "type": "felt*"
             }
         ],
         "name": "add_note_to_mode_steps7",

@@ -133,8 +133,9 @@ export const SharknetDrawer: FC = observer(() => {
     const withLength = [[mergedParams.length].concat(mergedParams)]
     setCallArgs(withLength)
 
+    console.log(serializedDrawerOptions)
+
     if (data) {
-      console.log(serializedDrawerOptions)
       //console.log(console.log(data[0].map((bn: any) => bn.toString())))
       console.log("data")
       console.log(data.length)
