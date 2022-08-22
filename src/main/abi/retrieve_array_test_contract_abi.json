@@ -587,6 +587,27 @@
     {
         "inputs": [
             {
+                "name": "modeidx",
+                "type": "felt"
+            }
+        ],
+        "name": "idx_to_mode_steps",
+        "outputs": [
+            {
+                "name": "mode_len",
+                "type": "felt"
+            },
+            {
+                "name": "mode",
+                "type": "felt*"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
                 "name": "pclass",
                 "type": "PitchClass"
             }
@@ -1181,6 +1202,75 @@
             }
         ],
         "name": "get_notes_of_key6",
+        "outputs": [
+            {
+                "name": "mode_len",
+                "type": "felt"
+            },
+            {
+                "name": "mode",
+                "type": "felt*"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "name": "arr_len",
+                "type": "felt"
+            },
+            {
+                "name": "arr",
+                "type": "felt*"
+            },
+            {
+                "name": "new_arr_len",
+                "type": "felt"
+            },
+            {
+                "name": "new_arr",
+                "type": "felt*"
+            },
+            {
+                "name": "arr_idx",
+                "type": "felt"
+            },
+            {
+                "name": "inc",
+                "type": "felt"
+            },
+            {
+                "name": "randarr_len",
+                "type": "felt"
+            },
+            {
+                "name": "randarr",
+                "type": "felt*"
+            },
+            {
+                "name": "randinc",
+                "type": "felt"
+            }
+        ],
+        "name": "add_note_to_mode_steps7",
+        "outputs": [],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "name": "mode1_len",
+                "type": "felt"
+            },
+            {
+                "name": "mode1",
+                "type": "felt*"
+            }
+        ],
+        "name": "get_notes_of_key7",
         "outputs": [
             {
                 "name": "mode_len",

@@ -64,7 +64,7 @@ export const SharknetMenuButton: FC = observer(() => {
       >
         <ArrowIcon isOpen={open} />
       </NavBackButton>
-      <TrackName onClick={onClickNavBack}>Sharknet</TrackName>
+      <TrackName onClick={onClickNavBack}>StarkNet</TrackName>
     </>
   )
 })

@@ -12,7 +12,6 @@ import { observer } from "mobx-react-lite"
 import { FC, useState } from "react"
 import { localized } from "../../../common/localize/localizedString"
 import { NoteEvent } from "../../../common/track"
-import { addNoteToSelection } from "../../actions/selection"
 import { createNote2 } from "../../actions/track"
 import { useCounterContract } from "../../hooks/useCounterContract"
 import { useStores } from "../../hooks/useStores"
@@ -62,8 +61,12 @@ const keyCOptions = [
   "Dorian",
   "Lydian",
   "Mixolydian",
-  "Aeloian",
   "Phyrigian",
+  "Locrian",
+  "Aeolian",
+  "Harmonic Min",
+  "Natural Min",
+  "Chromatic",
 ]
 const HARMONY_MAX_VALUE = 5
 const HARMONY_MIN_VALUE = 0
@@ -79,7 +82,7 @@ export const SharknetDrawer: FC = observer(() => {
   const { contract: counter } = useCounterContract()
   const { data } = useStarknetCall({
     contract: counter,
-    method: "get_notes_of_key6",
+    method: "get_notes_of_key7",
     args: callArgs,
     options: { watch: true },
   })
@@ -131,6 +134,7 @@ export const SharknetDrawer: FC = observer(() => {
     setCallArgs(withLength)
 
     if (data) {
+      console.log(serializedDrawerOptions)
       //console.log(console.log(data[0].map((bn: any) => bn.toString())))
       console.log("data")
       console.log(data.length)
@@ -157,7 +161,7 @@ export const SharknetDrawer: FC = observer(() => {
           return
         }
         console.log(note.id)
-        addNoteToSelection(rootStore)(note.id)
+        //addNoteToSelection(rootStore)(note.id)
       }
     }
 
