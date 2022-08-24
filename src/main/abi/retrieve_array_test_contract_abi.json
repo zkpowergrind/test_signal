@@ -459,6 +459,39 @@
                 "type": "felt"
             },
             {
+                "name": "offset",
+                "type": "felt"
+            }
+        ],
+        "name": "get_lcf_list_with_bounds",
+        "outputs": [
+            {
+                "name": "arr_len",
+                "type": "felt"
+            },
+            {
+                "name": "arr",
+                "type": "felt*"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "name": "arr_size",
+                "type": "felt"
+            },
+            {
+                "name": "modulus",
+                "type": "felt"
+            },
+            {
+                "name": "mult",
+                "type": "felt"
+            },
+            {
                 "name": "increment",
                 "type": "felt"
             }
@@ -1396,6 +1429,378 @@
             },
             {
                 "name": "mode",
+                "type": "felt*"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "name": "arr_len",
+                "type": "felt"
+            },
+            {
+                "name": "arr",
+                "type": "felt*"
+            },
+            {
+                "name": "new_arr_len",
+                "type": "felt"
+            },
+            {
+                "name": "new_arr",
+                "type": "felt*"
+            },
+            {
+                "name": "arr_idx",
+                "type": "felt"
+            },
+            {
+                "name": "inc",
+                "type": "felt"
+            },
+            {
+                "name": "randarr_len",
+                "type": "felt"
+            },
+            {
+                "name": "randarr",
+                "type": "felt*"
+            },
+            {
+                "name": "randinc",
+                "type": "felt"
+            },
+            {
+                "name": "mode1_len",
+                "type": "felt"
+            },
+            {
+                "name": "mode1",
+                "type": "felt*"
+            },
+            {
+                "name": "harmony_table_len",
+                "type": "felt"
+            },
+            {
+                "name": "harmony_table",
+                "type": "felt*"
+            }
+        ],
+        "name": "add_note_to_mode_steps8",
+        "outputs": [],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "name": "mode1_len",
+                "type": "felt"
+            },
+            {
+                "name": "mode1",
+                "type": "felt*"
+            }
+        ],
+        "name": "harmonization_by_table",
+        "outputs": [
+            {
+                "name": "mode_len",
+                "type": "felt"
+            },
+            {
+                "name": "mode",
+                "type": "felt*"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "name": "arr_len",
+                "type": "felt"
+            },
+            {
+                "name": "arr",
+                "type": "felt*"
+            },
+            {
+                "name": "new_arr_len",
+                "type": "felt"
+            },
+            {
+                "name": "new_arr",
+                "type": "felt*"
+            },
+            {
+                "name": "arr_idx",
+                "type": "felt"
+            },
+            {
+                "name": "inc",
+                "type": "felt"
+            },
+            {
+                "name": "randarr_len",
+                "type": "felt"
+            },
+            {
+                "name": "randarr",
+                "type": "felt*"
+            },
+            {
+                "name": "randinc",
+                "type": "felt"
+            },
+            {
+                "name": "mode1_len",
+                "type": "felt"
+            },
+            {
+                "name": "mode1",
+                "type": "felt*"
+            },
+            {
+                "name": "harmony_table_len",
+                "type": "felt"
+            },
+            {
+                "name": "harmony_table",
+                "type": "felt*"
+            }
+        ],
+        "name": "add_note_to_mode_steps9",
+        "outputs": [],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "name": "mode1_len",
+                "type": "felt"
+            },
+            {
+                "name": "mode1",
+                "type": "felt*"
+            }
+        ],
+        "name": "harmonization_by_table_three_part",
+        "outputs": [
+            {
+                "name": "mode_len",
+                "type": "felt"
+            },
+            {
+                "name": "mode",
+                "type": "felt*"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "name": "arr_len",
+                "type": "felt"
+            },
+            {
+                "name": "arr",
+                "type": "felt*"
+            },
+            {
+                "name": "new_arr_len",
+                "type": "felt"
+            },
+            {
+                "name": "new_arr",
+                "type": "felt*"
+            },
+            {
+                "name": "arr_idx",
+                "type": "felt"
+            },
+            {
+                "name": "inc",
+                "type": "felt"
+            },
+            {
+                "name": "randarr_len",
+                "type": "felt"
+            },
+            {
+                "name": "randarr",
+                "type": "felt*"
+            },
+            {
+                "name": "randinc",
+                "type": "felt"
+            },
+            {
+                "name": "mode1_len",
+                "type": "felt"
+            },
+            {
+                "name": "mode1",
+                "type": "felt*"
+            },
+            {
+                "name": "harmony_table_len",
+                "type": "felt"
+            },
+            {
+                "name": "harmony_table",
+                "type": "felt*"
+            }
+        ],
+        "name": "add_note_to_mode_steps11",
+        "outputs": [],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "name": "mode1_len",
+                "type": "felt"
+            },
+            {
+                "name": "mode1",
+                "type": "felt*"
+            }
+        ],
+        "name": "harmonization_by_table_three_part3",
+        "outputs": [
+            {
+                "name": "mode_len",
+                "type": "felt"
+            },
+            {
+                "name": "mode",
+                "type": "felt*"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "name": "arr_len",
+                "type": "felt"
+            },
+            {
+                "name": "arr",
+                "type": "felt*"
+            },
+            {
+                "name": "new_arr_len",
+                "type": "felt"
+            },
+            {
+                "name": "new_arr",
+                "type": "felt*"
+            },
+            {
+                "name": "arr_idx",
+                "type": "felt"
+            },
+            {
+                "name": "inc",
+                "type": "felt"
+            },
+            {
+                "name": "randarr_len",
+                "type": "felt"
+            },
+            {
+                "name": "randarr",
+                "type": "felt*"
+            },
+            {
+                "name": "randinc",
+                "type": "felt"
+            },
+            {
+                "name": "mode1_len",
+                "type": "felt"
+            },
+            {
+                "name": "mode1",
+                "type": "felt*"
+            },
+            {
+                "name": "harmony_table_len",
+                "type": "felt"
+            },
+            {
+                "name": "harmony_table",
+                "type": "felt*"
+            }
+        ],
+        "name": "add_note_to_mode_steps10",
+        "outputs": [],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "name": "mode1_len",
+                "type": "felt"
+            },
+            {
+                "name": "mode1",
+                "type": "felt*"
+            }
+        ],
+        "name": "harmonization_by_table_three_part2",
+        "outputs": [
+            {
+                "name": "mode_len",
+                "type": "felt"
+            },
+            {
+                "name": "mode",
+                "type": "felt*"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [],
+        "name": "three_part_voicing_table",
+        "outputs": [
+            {
+                "name": "table_len",
+                "type": "felt"
+            },
+            {
+                "name": "table",
+                "type": "felt*"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [],
+        "name": "two_part_voicing_table_strong_beat",
+        "outputs": [
+            {
+                "name": "table_len",
+                "type": "felt"
+            },
+            {
+                "name": "table",
                 "type": "felt*"
             }
         ],

@@ -83,7 +83,7 @@ export const SharknetDrawer: FC = observer(() => {
   const { contract: counter } = useCounterContract()
   const { data } = useStarknetCall({
     contract: counter,
-    method: "get_notes_of_key7",
+    method: "harmonization_by_table_three_part3",
     args: callArgs,
     options: { watch: true },
   })
