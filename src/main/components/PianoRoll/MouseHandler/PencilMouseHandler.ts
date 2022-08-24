@@ -11,7 +11,7 @@ import {
   resizeNoteRight,
   resizeSelection,
   selectNote,
-  startSelection,
+  startSelection
 } from "../../../actions"
 import { observeDrag2 } from "../../../helpers/observeDrag"
 import { PianoNoteItem } from "../../../stores/PianoRollStore"

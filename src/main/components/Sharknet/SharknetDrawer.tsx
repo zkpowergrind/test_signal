@@ -81,12 +81,13 @@ export const SharknetDrawer: FC = observer(() => {
   const [callArgs, setCallArgs] = useState<number[][]>([[]])
 
   const { contract: counter } = useCounterContract()
-  const { data } = useStarknetCall({
+  const { data, error, refresh } = useStarknetCall({
     contract: counter,
     method: "get_notes_of_key7",
     args: callArgs,
     options: { watch: true },
   })
+  error && console.log("useStarknetCall error response ===>", error)
 
   const onChangeForm = (key: string, value: string | number) => {
     sharknet.drawerOptions = {
@@ -133,7 +134,8 @@ export const SharknetDrawer: FC = observer(() => {
     const withLength = [[mergedParams.length].concat(mergedParams)]
     setCallArgs(withLength)
 
-    console.log(serializedDrawerOptions)
+    // This one works
+    // const note = createNote(rootStore)(4270, 58)
 
     if (data) {
       //console.log(console.log(data[0].map((bn: any) => bn.toString())))
@@ -143,26 +145,12 @@ export const SharknetDrawer: FC = observer(() => {
       console.log(data[0].length)
 
       for (let i = 0; i < data[0].length; i = i + 4) {
-        rootStore.song.selectedTrack?.addEvent<NoteEvent>({
-          type: "channel",
-          subtype: "note",
-          duration: data[0][i],
-          tick: data[0][i + 2],
-          velocity: data[0][i + 3],
-          noteNumber: data[0][i + 1],
-        })
-
         const note = createNote2(rootStore)(
-          data[0][i + 2],
-          data[0][i + 1],
-          data[0][i + 3],
-          data[0][i]
+          +data[0][i + 2].toString(),
+          +data[0][i + 1].toString(),
+          +data[0][i + 3].toString(),
+          +data[0][i].toString()
         )
-        if (note === undefined) {
-          return
-        }
-        console.log(note.id)
-        //addNoteToSelection(rootStore)(note.id)
       }
     }
 

@@ -3,13 +3,13 @@ import { closedRange } from "../../common/helpers/array"
 import {
   createValueEvent,
   isValueEvent,
-  ValueEventType,
+  ValueEventType
 } from "../../common/helpers/valueEvent"
 import {
   panMidiEvent,
   programChangeMidiEvent,
   timeSignatureMidiEvent,
-  volumeMidiEvent,
+  volumeMidiEvent
 } from "../../common/midi/MidiEvent"
 import Quantizer from "../../common/quantizer"
 import { getMeasureStart } from "../../common/song/selector"
@@ -17,13 +17,13 @@ import Track, {
   isNoteEvent,
   NoteEvent,
   TrackEvent,
-  TrackEventOf,
+  TrackEventOf
 } from "../../common/track"
 import RootStore from "../stores/RootStore"
 import { pushHistory } from "./history"
 import {
   resizeNotesInSelectionLeftBy,
-  resizeNotesInSelectionRightBy,
+  resizeNotesInSelectionRightBy
 } from "./selection"
 
 export const changeTempo =
@@ -209,8 +209,8 @@ export const createNote2 =
   (
     tick: number,
     noteNumber: number,
-    notevelocity: number,
-    noteduration: number
+    noteVelocity: number,
+    noteDuration: number
   ) => {
     const {
       song,
@@ -233,8 +233,8 @@ export const createNote2 =
       subtype: "note",
       noteNumber: noteNumber,
       tick,
-      velocity: notevelocity,
-      duration: noteduration,
+      velocity: noteVelocity,
+      duration: noteDuration,
     }
 
     return selectedTrack.addEvent(note)

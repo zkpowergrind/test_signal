@@ -133,7 +133,6 @@ export default class Track {
   }
 
   addEvent<T extends TrackEvent>(e: Omit<T, "id">): T {
-    console.log(e,'xxxxx')
     const ev = this._addEvent(e)
     this.didAddEvent()
     return ev
