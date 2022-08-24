@@ -143,26 +143,12 @@ export const SharknetDrawer: FC = observer(() => {
       console.log(data[0].length)
 
       for (let i = 0; i < data[0].length; i = i + 4) {
-        rootStore.song.selectedTrack?.addEvent<NoteEvent>({
-          type: "channel",
-          subtype: "note",
-          duration: data[0][i],
-          tick: data[0][i + 2],
-          velocity: data[0][i + 3],
-          noteNumber: data[0][i + 1],
-        })
-
         const note = createNote2(rootStore)(
-          data[0][i + 2],
-          data[0][i + 1],
-          data[0][i + 3],
-          data[0][i]
+          +data[0][i + 2].toString(),
+          +data[0][i + 1].toString(),
+          +data[0][i + 3].toString(),
+          +data[0][i].toString()
         )
-        if (note === undefined) {
-          return
-        }
-        console.log(note.id)
-        //addNoteToSelection(rootStore)(note.id)
       }
     }
 
