@@ -38,9 +38,11 @@ const AutoScrollIcon = styled(KeyboardTab)`
 const contractOptions = [
   { name: "Shearing", value: "Shearing" },
   { name: "Two Part", value: "Two Part" },
+  { name: "Three Part", value: "Three Part" },
   { name: "Counterpoint", value: "Counterpoint" },
   { name: "Maj7", value: "Maj7" },
   { name: "Maj6", value: "Maj6" },
+  { name: "DeepBach-Soon", value: "DeepBach-Soon" },
 ]
 const keyNOptions = [
   "C",
@@ -83,7 +85,7 @@ export const SharknetDrawer: FC = observer(() => {
   const { contract: counter } = useCounterContract()
   const { data } = useStarknetCall({
     contract: counter,
-    method: "harmonization_by_table_three_part3",
+    method: "wrapper3",
     args: callArgs,
     options: { watch: true },
   })
