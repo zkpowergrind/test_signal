@@ -12,7 +12,7 @@ export function useCounterContract() {
       //"0x05fce2b74494bfe7da1e7f49e55f5edd3a4473545bafccf6923548ad01727efe",
       //"0x03ddf155d92bc8f6bd8ef36e52df2a995cabf66c4c0be1be1d6edac15f3de9a2",
       //"0x07af61c6fa9c5e8c177ca58d9dd8822130a198b90aaf46292cc28377230d1b89",
-      "0x051f0b689691cfbaa81c8d96be007bf7db916b12cbd4d62428ae348f4b0f7a82",
+      "0x03166512aae6f486f4f57f49796ae24d9f1721d78c400258274357cdce46601a",
   })
 }
 

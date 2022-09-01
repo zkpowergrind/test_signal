@@ -2015,6 +2015,31 @@
     {
         "inputs": [
             {
+                "name": "site_data_len",
+                "type": "felt"
+            },
+            {
+                "name": "site_data",
+                "type": "felt*"
+            }
+        ],
+        "name": "wrapper4",
+        "outputs": [
+            {
+                "name": "outdata_len",
+                "type": "felt"
+            },
+            {
+                "name": "outdata",
+                "type": "felt*"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
                 "name": "arr_len",
                 "type": "felt"
             },
@@ -2069,6 +2094,38 @@
         ],
         "name": "note_factory",
         "outputs": [],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [],
+        "name": "three_part_voicing_table",
+        "outputs": [
+            {
+                "name": "table_len",
+                "type": "felt"
+            },
+            {
+                "name": "table",
+                "type": "felt*"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [],
+        "name": "n_part_voicing_table_",
+        "outputs": [
+            {
+                "name": "table_len",
+                "type": "felt"
+            },
+            {
+                "name": "table",
+                "type": "felt*"
+            }
+        ],
         "stateMutability": "view",
         "type": "function"
     },
@@ -2155,22 +2212,6 @@
             },
             {
                 "name": "mode",
-                "type": "felt*"
-            }
-        ],
-        "stateMutability": "view",
-        "type": "function"
-    },
-    {
-        "inputs": [],
-        "name": "three_part_voicing_table",
-        "outputs": [
-            {
-                "name": "table_len",
-                "type": "felt"
-            },
-            {
-                "name": "table",
                 "type": "felt*"
             }
         ],
