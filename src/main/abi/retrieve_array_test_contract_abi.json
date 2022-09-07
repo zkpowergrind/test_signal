@@ -52,10 +52,15 @@
                 "name": "last_note_data_idx",
                 "offset": 6,
                 "type": "felt"
+            },
+            {
+                "name": "num_divisions",
+                "offset": 7,
+                "type": "felt"
             }
         ],
         "name": "StarkNetDrawer",
-        "size": 7,
+        "size": 8,
         "type": "struct"
     },
     {
@@ -1833,6 +1838,79 @@
     {
         "inputs": [
             {
+                "name": "site_data_len",
+                "type": "felt"
+            },
+            {
+                "name": "site_data",
+                "type": "felt*"
+            },
+            {
+                "name": "out_data_len",
+                "type": "felt"
+            },
+            {
+                "name": "out_data",
+                "type": "felt*"
+            },
+            {
+                "name": "arr_idx",
+                "type": "felt"
+            },
+            {
+                "name": "pitchcollection_len",
+                "type": "felt"
+            },
+            {
+                "name": "pitchcollection",
+                "type": "felt*"
+            },
+            {
+                "name": "harmony_table_len",
+                "type": "felt"
+            },
+            {
+                "name": "harmony_table",
+                "type": "felt*"
+            },
+            {
+                "name": "randarr_len",
+                "type": "felt"
+            },
+            {
+                "name": "randarr",
+                "type": "felt*"
+            },
+            {
+                "name": "randinc",
+                "type": "felt"
+            },
+            {
+                "name": "drawer_data",
+                "type": "StarkNetDrawer"
+            },
+            {
+                "name": "num_inc",
+                "type": "felt"
+            }
+        ],
+        "name": "notefactory3",
+        "outputs": [
+            {
+                "name": "out_data_len",
+                "type": "felt"
+            },
+            {
+                "name": "out_data",
+                "type": "felt*"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
                 "name": "arr_len",
                 "type": "felt"
             },
@@ -1890,6 +1968,70 @@
             }
         ],
         "name": "add_note_to_mode_steps11_drawer2",
+        "outputs": [],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "name": "arr_len",
+                "type": "felt"
+            },
+            {
+                "name": "arr",
+                "type": "felt*"
+            },
+            {
+                "name": "new_arr_len",
+                "type": "felt"
+            },
+            {
+                "name": "new_arr",
+                "type": "felt*"
+            },
+            {
+                "name": "arr_idx",
+                "type": "felt"
+            },
+            {
+                "name": "inc",
+                "type": "felt"
+            },
+            {
+                "name": "randarr_len",
+                "type": "felt"
+            },
+            {
+                "name": "randarr",
+                "type": "felt*"
+            },
+            {
+                "name": "randinc",
+                "type": "felt"
+            },
+            {
+                "name": "mode1_len",
+                "type": "felt"
+            },
+            {
+                "name": "mode1",
+                "type": "felt*"
+            },
+            {
+                "name": "harmony_table_len",
+                "type": "felt"
+            },
+            {
+                "name": "harmony_table",
+                "type": "felt*"
+            },
+            {
+                "name": "drawer_data",
+                "type": "StarkNetDrawer"
+            }
+        ],
+        "name": "add_note_to_mode_steps11_drawer3",
         "outputs": [],
         "stateMutability": "view",
         "type": "function"
@@ -2115,7 +2257,23 @@
     },
     {
         "inputs": [],
-        "name": "n_part_voicing_table_",
+        "name": "n_part_voicing_table_3",
+        "outputs": [
+            {
+                "name": "table_len",
+                "type": "felt"
+            },
+            {
+                "name": "table",
+                "type": "felt*"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [],
+        "name": "n_part_voicing_table_4_first_species",
         "outputs": [
             {
                 "name": "table_len",
@@ -2212,6 +2370,22 @@
             },
             {
                 "name": "mode",
+                "type": "felt*"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [],
+        "name": "n_part_voicing_table_strong_beat_2",
+        "outputs": [
+            {
+                "name": "table_len",
+                "type": "felt"
+            },
+            {
+                "name": "table",
                 "type": "felt*"
             }
         ],
