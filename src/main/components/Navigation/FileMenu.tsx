@@ -156,6 +156,21 @@ export const FileMenu: FC<{ close: () => void }> = observer(({ close }) => {
     }
   }
 
+  const onClickLoadSoundFont = async () => {
+    const { song } = rootStore
+    close()
+    try {
+      if (
+        song.isSaved ||
+        confirm(localized("confirm-open", "Are you sure you want to continue?"))
+      ) {
+        await openFile(rootStore)
+      }
+    } catch (e) {
+      rootStore.toastStore.showError((e as Error).message)
+    }
+  }
+
   const onClickSave = async () => {
     close()
     await saveFile(rootStore)
@@ -227,6 +242,9 @@ export const FileMenu: FC<{ close: () => void }> = observer(({ close }) => {
 
       <MenuItem onClick={onClickOpen}>
         {localized("open-song", "Open")}
+      </MenuItem>
+      <MenuItem onClick={onClickLoadSoundFont}>
+        {localized("load-soundfont", "Load SoundFont")}
       </MenuItem>
 
       <MenuItem
