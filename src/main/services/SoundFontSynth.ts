@@ -4,7 +4,7 @@ import { SendableEvent, SynthOutput } from "./SynthOutput"
 
 export class SoundFontSynth implements SynthOutput {
   private synth: AudioWorkletNode | null = null
-  private soundFontURL: string
+  private soundFontURL?: string
   private context = new (window.AudioContext || window.webkitAudioContext)()
 
   private _loadedSoundFontData: ArrayBuffer | null = null
@@ -14,9 +14,13 @@ export class SoundFontSynth implements SynthOutput {
 
   isLoading: boolean = true
 
-  constructor(context: AudioContext, soundFontURL: string) {
+  constructor(context: AudioContext, options: {
+    soundFontURL?: string,
+    soundFontData?: ArrayBuffer
+  }) {
     this.context = context
-    this.soundFontURL = soundFontURL
+    this.soundFontURL = options.soundFontURL
+    this._loadedSoundFontData = options.soundFontData || null
 
     makeObservable(this, {
       isLoading: observable,
@@ -41,9 +45,13 @@ export class SoundFontSynth implements SynthOutput {
   }
 
   private async loadSoundFont() {
-    const data = await (await fetch(this.soundFontURL)).arrayBuffer()
-    const samples = getSamplesFromSoundFont(new Uint8Array(data), this.context)
-    this._loadedSoundFontData = data
+    if (this.soundFontURL) {
+      const data = await (await fetch(this.soundFontURL)).arrayBuffer()
+      this._loadedSoundFontData = data
+    } else {
+      // Just use static sound font data
+    }
+    const samples = getSamplesFromSoundFont(new Uint8Array(this._loadedSoundFontData!), this.context)
 
     for (const sample of samples) {
       this.postSynthMessage(

@@ -7,6 +7,7 @@ import { createSong } from "../../actions"
 
 import {
   openFile,
+  openSoundFontFile,
   saveFile,
   saveFileAs,
   saveStarknetFile,
@@ -159,16 +160,7 @@ export const FileMenu: FC<{ close: () => void }> = observer(({ close }) => {
   const onClickLoadSoundFont = async () => {
     const { song } = rootStore
     close()
-    try {
-      if (
-        song.isSaved ||
-        confirm(localized("confirm-open", "Are you sure you want to continue?"))
-      ) {
-        await openFile(rootStore)
-      }
-    } catch (e) {
-      rootStore.toastStore.showError((e as Error).message)
-    }
+    openSoundFontFile(rootStore)
   }
 
   const onClickSave = async () => {

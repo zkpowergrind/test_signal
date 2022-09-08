@@ -1,5 +1,7 @@
 import { songFromMidi, songToMidi } from "../../common/midi/midiConversion"
 import { writeFile } from "../services/fs-helper"
+import { GroupOutput } from "../services/GroupOutput"
+import { SoundFontSynth } from "../services/SoundFontSynth"
 import RootStore from "../stores/RootStore"
 import { setSong } from "./song"
 
@@ -71,6 +73,46 @@ export const openFile = async (rootStore: RootStore) => {
   const song = await songFromFile(file)
   song.fileHandle = fileHandle
   setSong(rootStore)(song)
+}
+
+
+export const openSoundFontFile = async (rootStore: RootStore) => {
+  let fileHandle: FileSystemFileHandle
+  try {
+    fileHandle = (
+      await window.showOpenFilePicker({
+        types: [
+          {
+            description: "SoundFont file",
+            accept: { "audio/*": [".sf2"] },
+          },
+        ],
+      })
+    )[0]
+  } catch (ex) {
+    if ((ex as Error).name === "AbortError") {
+      return
+    }
+    const msg = "An error occured trying to open the file."
+    console.error(msg, ex)
+    alert(msg)
+    return
+  }
+  const file = await fileHandle.getFile()
+
+  const buf = await file.arrayBuffer()
+  const context = new (window.AudioContext || window.webkitAudioContext)()
+  const synth = new SoundFontSynth(
+    context,
+    {
+      soundFontData: buf
+    }
+  )
+  const synthGroup = new GroupOutput()
+  synthGroup.outputs.push({ synth: synth, isEnabled: true })
+
+
+  rootStore.player.setOutput(synthGroup)
 }
 
 export const openStarkNetFile = async (

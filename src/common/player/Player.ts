@@ -9,7 +9,7 @@ import { Beat, createBeatsInRange } from "../helpers/mapBeats"
 import {
   controllerMidiEvent,
   noteOffMidiEvent,
-  noteOnMidiEvent,
+  noteOnMidiEvent
 } from "../midi/MidiEvent"
 import { NoteEvent } from "../track"
 import { getStatusEvents } from "../track/selector"
@@ -64,6 +64,10 @@ export default class Player {
     this._metronomeOutput = metronomeOutput
     this._trackMute = trackMute
     this._songStore = songStore
+  }
+
+  public setOutput (output: SynthOutput) {
+    this._output = output
   }
 
   private get song() {
