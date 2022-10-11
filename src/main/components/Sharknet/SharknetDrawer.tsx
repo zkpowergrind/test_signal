@@ -85,7 +85,7 @@ export const SharknetDrawer: FC = observer(() => {
   const { contract: counter } = useCounterContract()
   const { data } = useStarknetCall({
     contract: counter,
-    method: "wrapper4",
+    method: "Harmonizer",
     args: callArgs,
     options: { watch: true },
   })
@@ -105,6 +105,7 @@ export const SharknetDrawer: FC = observer(() => {
       nums.push(note.tick)
       nums.push(note.velocity)
     })
+    console.log(nums)
     return nums
   }
 

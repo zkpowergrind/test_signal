@@ -1,0 +1,1024 @@
+[
+    {
+        "members": [
+            {
+                "name": "note",
+                "offset": 0,
+                "type": "felt"
+            },
+            {
+                "name": "octave",
+                "offset": 1,
+                "type": "felt"
+            }
+        ],
+        "name": "PitchClass",
+        "size": 2,
+        "type": "struct"
+    },
+    {
+        "members": [
+            {
+                "name": "algorithm_idx",
+                "offset": 0,
+                "type": "felt"
+            },
+            {
+                "name": "tonic_idx",
+                "offset": 1,
+                "type": "felt"
+            },
+            {
+                "name": "pitchcollection_idx",
+                "offset": 2,
+                "type": "felt"
+            },
+            {
+                "name": "harmonies_val",
+                "offset": 3,
+                "type": "felt"
+            },
+            {
+                "name": "inversion_val",
+                "offset": 4,
+                "type": "felt"
+            },
+            {
+                "name": "spread_val",
+                "offset": 5,
+                "type": "felt"
+            },
+            {
+                "name": "last_note_data_idx",
+                "offset": 6,
+                "type": "felt"
+            },
+            {
+                "name": "num_divisions",
+                "offset": 7,
+                "type": "felt"
+            }
+        ],
+        "name": "HarmonizerInputArgs",
+        "size": 8,
+        "type": "struct"
+    },
+    {
+        "inputs": [
+            {
+                "name": "arr_len",
+                "type": "felt"
+            },
+            {
+                "name": "arr",
+                "type": "felt*"
+            },
+            {
+                "name": "arr_size",
+                "type": "felt"
+            },
+            {
+                "name": "modulus",
+                "type": "felt"
+            },
+            {
+                "name": "mult",
+                "type": "felt"
+            },
+            {
+                "name": "seed",
+                "type": "felt"
+            },
+            {
+                "name": "offset",
+                "type": "felt"
+            }
+        ],
+        "name": "lcg_inner",
+        "outputs": [],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "name": "arr_size",
+                "type": "felt"
+            },
+            {
+                "name": "modulus",
+                "type": "felt"
+            },
+            {
+                "name": "mult",
+                "type": "felt"
+            },
+            {
+                "name": "offset",
+                "type": "felt"
+            }
+        ],
+        "name": "get_lcg_list_with_offset",
+        "outputs": [
+            {
+                "name": "arr_len",
+                "type": "felt"
+            },
+            {
+                "name": "arr",
+                "type": "felt*"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "name": "arr_size",
+                "type": "felt"
+            },
+            {
+                "name": "modulus",
+                "type": "felt"
+            },
+            {
+                "name": "mult",
+                "type": "felt"
+            },
+            {
+                "name": "offset",
+                "type": "felt"
+            }
+        ],
+        "name": "get_lcg_list_with_bounds",
+        "outputs": [
+            {
+                "name": "arr_len",
+                "type": "felt"
+            },
+            {
+                "name": "arr",
+                "type": "felt*"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [],
+        "name": "major_steps",
+        "outputs": [
+            {
+                "name": "mode_len",
+                "type": "felt"
+            },
+            {
+                "name": "mode",
+                "type": "felt*"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [],
+        "name": "minor_steps",
+        "outputs": [
+            {
+                "name": "mode_len",
+                "type": "felt"
+            },
+            {
+                "name": "mode",
+                "type": "felt*"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [],
+        "name": "lydian_steps",
+        "outputs": [
+            {
+                "name": "mode_len",
+                "type": "felt"
+            },
+            {
+                "name": "mode",
+                "type": "felt*"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [],
+        "name": "mixolydian_steps",
+        "outputs": [
+            {
+                "name": "mode_len",
+                "type": "felt"
+            },
+            {
+                "name": "mode",
+                "type": "felt*"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [],
+        "name": "dorian_steps",
+        "outputs": [
+            {
+                "name": "mode_len",
+                "type": "felt"
+            },
+            {
+                "name": "mode",
+                "type": "felt*"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [],
+        "name": "phrygian_steps",
+        "outputs": [
+            {
+                "name": "mode_len",
+                "type": "felt"
+            },
+            {
+                "name": "mode",
+                "type": "felt*"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [],
+        "name": "locrian_steps",
+        "outputs": [
+            {
+                "name": "mode_len",
+                "type": "felt"
+            },
+            {
+                "name": "mode",
+                "type": "felt*"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [],
+        "name": "aeolian_steps",
+        "outputs": [
+            {
+                "name": "mode_len",
+                "type": "felt"
+            },
+            {
+                "name": "mode",
+                "type": "felt*"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [],
+        "name": "harmonicminor_steps",
+        "outputs": [
+            {
+                "name": "mode_len",
+                "type": "felt"
+            },
+            {
+                "name": "mode",
+                "type": "felt*"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [],
+        "name": "naturalminor_steps",
+        "outputs": [
+            {
+                "name": "mode_len",
+                "type": "felt"
+            },
+            {
+                "name": "mode",
+                "type": "felt*"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [],
+        "name": "chromatic_steps",
+        "outputs": [
+            {
+                "name": "mode_len",
+                "type": "felt"
+            },
+            {
+                "name": "mode",
+                "type": "felt*"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [],
+        "name": "pentatonic_steps",
+        "outputs": [
+            {
+                "name": "mode_len",
+                "type": "felt"
+            },
+            {
+                "name": "mode",
+                "type": "felt*"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "name": "modeidx",
+                "type": "felt"
+            }
+        ],
+        "name": "idx_to_mode_steps",
+        "outputs": [
+            {
+                "name": "mode_len",
+                "type": "felt"
+            },
+            {
+                "name": "mode",
+                "type": "felt*"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "name": "pclass",
+                "type": "PitchClass"
+            }
+        ],
+        "name": "pc_to_keynum",
+        "outputs": [
+            {
+                "name": "keynum",
+                "type": "felt"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "name": "pclass1",
+                "type": "PitchClass"
+            },
+            {
+                "name": "pclass2",
+                "type": "PitchClass"
+            }
+        ],
+        "name": "diff_between_pc",
+        "outputs": [
+            {
+                "name": "steps",
+                "type": "felt"
+            },
+            {
+                "name": "direction",
+                "type": "felt"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "name": "arr_len",
+                "type": "felt"
+            },
+            {
+                "name": "arr",
+                "type": "felt*"
+            },
+            {
+                "name": "new_arr_len",
+                "type": "felt"
+            },
+            {
+                "name": "new_arr",
+                "type": "felt*"
+            },
+            {
+                "name": "arr_idx",
+                "type": "felt"
+            },
+            {
+                "name": "note",
+                "type": "felt"
+            }
+        ],
+        "name": "mode_notes_at_note_base",
+        "outputs": [],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "name": "tonic",
+                "type": "felt"
+            },
+            {
+                "name": "mode1_len",
+                "type": "felt"
+            },
+            {
+                "name": "mode1",
+                "type": "felt*"
+            }
+        ],
+        "name": "get_notes_of_key",
+        "outputs": [
+            {
+                "name": "mode_len",
+                "type": "felt"
+            },
+            {
+                "name": "mode",
+                "type": "felt*"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "name": "tonic",
+                "type": "felt"
+            },
+            {
+                "name": "keynum",
+                "type": "felt"
+            },
+            {
+                "name": "mode2_len",
+                "type": "felt"
+            },
+            {
+                "name": "mode2",
+                "type": "felt*"
+            }
+        ],
+        "name": "keynum_to_scale_degree",
+        "outputs": [
+            {
+                "name": "idx",
+                "type": "felt"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "name": "arr_len",
+                "type": "felt"
+            },
+            {
+                "name": "arr",
+                "type": "felt*"
+            },
+            {
+                "name": "arr_idx",
+                "type": "felt"
+            },
+            {
+                "name": "tonicnote",
+                "type": "felt"
+            },
+            {
+                "name": "keynumnote",
+                "type": "felt"
+            }
+        ],
+        "name": "get_scale_degree",
+        "outputs": [
+            {
+                "name": "idx",
+                "type": "felt"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "name": "arr_len",
+                "type": "felt"
+            },
+            {
+                "name": "arr",
+                "type": "felt*"
+            },
+            {
+                "name": "start_scale_degree",
+                "type": "felt"
+            },
+            {
+                "name": "scale_steps",
+                "type": "felt"
+            },
+            {
+                "name": "stepsum",
+                "type": "felt"
+            },
+            {
+                "name": "inc",
+                "type": "felt"
+            }
+        ],
+        "name": "recurse_modal_steps_and_sum",
+        "outputs": [
+            {
+                "name": "numsteps",
+                "type": "felt"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "name": "start_scale_degree",
+                "type": "felt"
+            },
+            {
+                "name": "scale_steps",
+                "type": "felt"
+            },
+            {
+                "name": "mode_len",
+                "type": "felt"
+            },
+            {
+                "name": "mode",
+                "type": "felt*"
+            }
+        ],
+        "name": "modal_transposition_inner",
+        "outputs": [
+            {
+                "name": "numsteps",
+                "type": "felt"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "name": "keynum",
+                "type": "felt"
+            },
+            {
+                "name": "scale_steps",
+                "type": "felt"
+            },
+            {
+                "name": "tonic",
+                "type": "felt"
+            },
+            {
+                "name": "mode_len",
+                "type": "felt"
+            },
+            {
+                "name": "mode",
+                "type": "felt*"
+            }
+        ],
+        "name": "modal_transposition",
+        "outputs": [
+            {
+                "name": "new_keynum",
+                "type": "felt"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "name": "arr_len",
+                "type": "felt"
+            },
+            {
+                "name": "arr",
+                "type": "felt*"
+            },
+            {
+                "name": "start_scale_degree",
+                "type": "felt"
+            },
+            {
+                "name": "scale_steps",
+                "type": "felt"
+            },
+            {
+                "name": "stepsum",
+                "type": "felt"
+            },
+            {
+                "name": "inc",
+                "type": "felt"
+            },
+            {
+                "name": "inc2",
+                "type": "felt"
+            }
+        ],
+        "name": "recurse_modal_steps_and_sum_descend",
+        "outputs": [
+            {
+                "name": "numsteps",
+                "type": "felt"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "name": "start_scale_degree",
+                "type": "felt"
+            },
+            {
+                "name": "scale_steps",
+                "type": "felt"
+            },
+            {
+                "name": "mode_len",
+                "type": "felt"
+            },
+            {
+                "name": "mode",
+                "type": "felt*"
+            }
+        ],
+        "name": "modal_transposition_descend_inner",
+        "outputs": [
+            {
+                "name": "numsteps",
+                "type": "felt"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "name": "keynum",
+                "type": "felt"
+            },
+            {
+                "name": "scale_steps",
+                "type": "felt"
+            },
+            {
+                "name": "tonic",
+                "type": "felt"
+            },
+            {
+                "name": "mode_len",
+                "type": "felt"
+            },
+            {
+                "name": "mode",
+                "type": "felt*"
+            }
+        ],
+        "name": "modal_transposition_descend",
+        "outputs": [
+            {
+                "name": "new_keynum",
+                "type": "felt"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [],
+        "name": "two_part_voicing_table",
+        "outputs": [
+            {
+                "name": "table_len",
+                "type": "felt"
+            },
+            {
+                "name": "table",
+                "type": "felt*"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [],
+        "name": "three_part_voicing_table",
+        "outputs": [
+            {
+                "name": "table_len",
+                "type": "felt"
+            },
+            {
+                "name": "table",
+                "type": "felt*"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [],
+        "name": "four_part_voicing_table",
+        "outputs": [
+            {
+                "name": "table_len",
+                "type": "felt"
+            },
+            {
+                "name": "table",
+                "type": "felt*"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [],
+        "name": "ravel_string_quartet_voicing_table",
+        "outputs": [
+            {
+                "name": "table_len",
+                "type": "felt"
+            },
+            {
+                "name": "table",
+                "type": "felt*"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "name": "modeidx",
+                "type": "felt"
+            }
+        ],
+        "name": "idx_to_voicing_tables",
+        "outputs": [
+            {
+                "name": "mode_len",
+                "type": "felt"
+            },
+            {
+                "name": "mode",
+                "type": "felt*"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "name": "site_data_len",
+                "type": "felt"
+            },
+            {
+                "name": "site_data",
+                "type": "felt*"
+            },
+            {
+                "name": "out_data_len",
+                "type": "felt"
+            },
+            {
+                "name": "out_data",
+                "type": "felt*"
+            },
+            {
+                "name": "arr_idx",
+                "type": "felt"
+            },
+            {
+                "name": "pitchcollection_len",
+                "type": "felt"
+            },
+            {
+                "name": "pitchcollection",
+                "type": "felt*"
+            },
+            {
+                "name": "harmony_table_len",
+                "type": "felt"
+            },
+            {
+                "name": "harmony_table",
+                "type": "felt*"
+            },
+            {
+                "name": "randarr_len",
+                "type": "felt"
+            },
+            {
+                "name": "randarr",
+                "type": "felt*"
+            },
+            {
+                "name": "randinc",
+                "type": "felt"
+            },
+            {
+                "name": "drawer_data",
+                "type": "HarmonizerInputArgs"
+            },
+            {
+                "name": "numharms",
+                "type": "felt"
+            }
+        ],
+        "name": "note_generator",
+        "outputs": [
+            {
+                "name": "out_data_len",
+                "type": "felt"
+            },
+            {
+                "name": "out_data",
+                "type": "felt*"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "name": "arr_len",
+                "type": "felt"
+            },
+            {
+                "name": "arr",
+                "type": "felt*"
+            },
+            {
+                "name": "new_arr_len",
+                "type": "felt"
+            },
+            {
+                "name": "new_arr",
+                "type": "felt*"
+            },
+            {
+                "name": "arr_idx",
+                "type": "felt"
+            },
+            {
+                "name": "inc",
+                "type": "felt"
+            },
+            {
+                "name": "randarr_len",
+                "type": "felt"
+            },
+            {
+                "name": "randarr",
+                "type": "felt*"
+            },
+            {
+                "name": "randinc",
+                "type": "felt"
+            },
+            {
+                "name": "mode1_len",
+                "type": "felt"
+            },
+            {
+                "name": "mode1",
+                "type": "felt*"
+            },
+            {
+                "name": "harmony_table_len",
+                "type": "felt"
+            },
+            {
+                "name": "harmony_table",
+                "type": "felt*"
+            },
+            {
+                "name": "drawer_data",
+                "type": "HarmonizerInputArgs"
+            }
+        ],
+        "name": "harmonization_by_voicing_table_inner",
+        "outputs": [],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "name": "site_data_len",
+                "type": "felt"
+            },
+            {
+                "name": "site_data",
+                "type": "felt*"
+            },
+            {
+                "name": "drawer_data",
+                "type": "HarmonizerInputArgs"
+            }
+        ],
+        "name": "harmonization_by_voicing_table",
+        "outputs": [
+            {
+                "name": "outdata_len",
+                "type": "felt"
+            },
+            {
+                "name": "outdata",
+                "type": "felt*"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "name": "site_data_len",
+                "type": "felt"
+            },
+            {
+                "name": "site_data",
+                "type": "felt*"
+            }
+        ],
+        "name": "Harmonizer",
+        "outputs": [
+            {
+                "name": "outdata_len",
+                "type": "felt"
+            },
+            {
+                "name": "outdata",
+                "type": "felt*"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    }
+]
