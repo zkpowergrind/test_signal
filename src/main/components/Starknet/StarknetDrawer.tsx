@@ -15,7 +15,7 @@ import { NoteEvent } from "../../../common/track"
 import { createNote2 } from "../../actions/track"
 import { useCounterContract } from "../../hooks/useCounterContract"
 import { useStores } from "../../hooks/useStores"
-import { DrawerOptions } from "../../stores/SharknetStore"
+import { DrawerOptions } from "../../stores/StarknetStore"
 import { NumberPicker } from "../Toolbar/QuantizeSelector/NumberPicker"
 import { ToolbarButton } from "../Toolbar/ToolbarButton"
 
@@ -76,9 +76,9 @@ const HARMONY_MIN_VALUE = 0
 const INVERSION_MAX_VALUE = 5
 const INVERSION_MIN_VALUE = 0
 
-export const SharknetDrawer: FC = observer(() => {
-  const { sharknet, selectedNotes } = useStores()
-  const drawerOptions = sharknet?.drawerOptions || {}
+export const StarknetDrawer: FC = observer(() => {
+  const { starknet, selectedNotes } = useStores()
+  const drawerOptions = starknet?.drawerOptions || {}
   const rootStore = useStores()
   const [callArgs, setCallArgs] = useState<number[][]>([[]])
 
@@ -91,8 +91,8 @@ export const SharknetDrawer: FC = observer(() => {
   })
 
   const onChangeForm = (key: string, value: string | number) => {
-    sharknet.drawerOptions = {
-      ...sharknet.drawerOptions,
+    starknet.drawerOptions = {
+      ...starknet.drawerOptions,
       [key]: value,
     }
   }
@@ -125,12 +125,12 @@ export const SharknetDrawer: FC = observer(() => {
     return nums
   }
   const onCompute = () => {
-    console.log("handle compute", sharknet?.drawerOptions)
+    console.log("handle compute", starknet?.drawerOptions)
     console.log("Selectednotes", selectedNotes.selectedNotes)
 
     const serializedNotes = serializeNotes(selectedNotes.selectedNotes)
     const serializedDrawerOptions = serializeDrawerOptions(
-      sharknet.drawerOptions
+      starknet.drawerOptions
     )
     const mergedParams = serializedNotes.concat(serializedDrawerOptions)
     const withLength = [[mergedParams.length].concat(mergedParams)]

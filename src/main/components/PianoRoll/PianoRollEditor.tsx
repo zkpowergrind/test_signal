@@ -4,7 +4,7 @@ import { FC } from "react"
 import { useStores } from "../../hooks/useStores"
 import { PianoRollKeyboardShortcut } from "../KeyboardShortcut/PianoRollKeyboardShortcut"
 import { PianoRollToolbar } from "../PianoRollToolbar/PianoRollToolbar"
-import { SharknetDrawer } from "../Sharknet/SharknetDrawer"
+import { StarknetDrawer } from "../Starknet/StarknetDrawer"
 import { TrackList } from "../TrackList/TrackList"
 import PianoRoll from "./PianoRoll"
 
@@ -25,7 +25,7 @@ const RowContainer = styled.div`
 export const PianoRollEditor: FC = observer(() => {
   const { rootViewStore } = useStores()
   const openTrackList = rootViewStore.openTrackListDrawer
-  const openSharknetDrawer = rootViewStore.openSharknetDrawer
+  const openStarknetDrawer = rootViewStore.openStarknetDrawer
 
   return (
     <ColumnContainer>
@@ -33,7 +33,7 @@ export const PianoRollEditor: FC = observer(() => {
       <PianoRollToolbar />
       <RowContainer>
         {openTrackList && <TrackList />}
-        {openSharknetDrawer && <SharknetDrawer />}
+        {openStarknetDrawer && <StarknetDrawer />}
         <PianoRoll />
       </RowContainer>
     </ColumnContainer>

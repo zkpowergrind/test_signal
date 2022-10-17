@@ -5,7 +5,7 @@ export default class RootViewStore {
   isArrangeViewSelected: boolean = false
   openDrawer = false
   openTrackListDrawer = false
-  openSharknetDrawer = false
+  openStarknetDrawer = false
   openHelp = false
   openDeviceDialog = false
   openEventEditor = false
@@ -18,7 +18,7 @@ export default class RootViewStore {
       isArrangeViewSelected: observable,
       openDrawer: observable,
       openTrackListDrawer: observable,
-      openSharknetDrawer: observable,
+      openStarknetDrawer: observable,
       openHelp: observable,
       openDeviceDialog: observable,
       openEventEditor: observable,

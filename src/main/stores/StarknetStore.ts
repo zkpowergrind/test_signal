@@ -9,11 +9,11 @@ export interface DrawerOptions {
   spread: number
 }
 
-export class SharknetStore {
+export class StarknetStore {
   drawerOptions: DrawerOptions = {
-    contract: 'Shearing',
-    keyN: 'C',
-    keyC: 'Major',
+    contract: "Shearing",
+    keyN: "C",
+    keyC: "Major",
     harmonies: 0,
     inversion: 0,
     spread: 50,

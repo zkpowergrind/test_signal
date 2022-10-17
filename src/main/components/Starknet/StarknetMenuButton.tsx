@@ -43,12 +43,12 @@ const TrackName = styled.span`
   cursor: pointer;
 `
 
-export const SharknetMenuButton: FC = observer(() => {
+export const StarknetMenuButton: FC = observer(() => {
   const { rootViewStore } = useStores()
-  const open = rootViewStore.openSharknetDrawer
+  const open = rootViewStore.openStarknetDrawer
   const onClickNavBack = useCallback(
     () =>
-      (rootViewStore.openSharknetDrawer = !rootViewStore.openSharknetDrawer),
+      (rootViewStore.openStarknetDrawer = !rootViewStore.openStarknetDrawer),
     [rootViewStore]
   )
 
